@@ -1,0 +1,14 @@
+.hub-intro { font-size: 14px; color: var(--ink-soft); margin: 16px 2px 18px; }
+.hub { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+@media (max-width: 440px) { .hub { grid-template-columns: 1fr; } }
+.hcard {
+  display: block; text-align: left; background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 16px 15px; text-decoration: none; box-shadow: var(--shadow);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.hcard:hover { border-color: var(--gilt); }
+.hcard:active { transform: scale(.985); }
+.hcard .em { font-size: 26px; line-height: 1; display: block; margin-bottom: 9px; }
+.hcard .ht { font-size: 16.5px; font-weight: 700; margin: 0 0 3px; }
+.hcard .hd { font-size: 12.5px; color: var(--muted); margin: 0; }
+.hcard .hp { margin-top: 9px; font-size: 11px; font-weight: 700; color: var(--gold); letter-spacing: .3px; }

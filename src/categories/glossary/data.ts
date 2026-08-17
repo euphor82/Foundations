@@ -1,0 +1,161 @@
+import type { Term } from './types'
+
+/* Seeded sample (~8 core terms). Rendered A–Z. */
+export const TERMS: Term[] = [
+  {
+    term: 'Atonement',
+    short: "The reconciling of God and humanity through Christ's death.",
+    long: "Atonement refers to how the broken relationship between a holy God and sinful people is repaired. Christianity teaches that Jesus, by his death on the cross, bore the penalty of sin in our place, so that those who trust him are reconciled to God. The word literally captures the idea of being made 'at one' with God again.",
+    see_also: ['Grace', 'Justification', 'Gospel'],
+  },
+  {
+    term: 'Covenant',
+    short: 'A binding relationship God initiates with his people.',
+    long: 'A covenant is a solemn, committed relationship — more than a contract. Throughout Scripture God binds himself to his people by covenant: with Noah, Abraham, Israel through Moses, and finally the “new covenant” in Christ, in which God promises to forgive sins and write his law on human hearts.',
+    see_also: ['Grace'],
+  },
+  {
+    term: 'Gospel',
+    short: "The 'good news' that God saves sinners through Jesus.",
+    long: "'Gospel' means good news. At its heart it is the announcement that Jesus, the Son of God, lived, died for sins, and rose again, so that all who trust him are forgiven and reconciled to God. It is called good news because it is something God has done, received as a gift rather than achieved.",
+    see_also: ['Grace', 'Atonement', 'Repentance'],
+  },
+  {
+    term: 'Grace',
+    short: 'God’s unearned favor and kindness toward the undeserving.',
+    long: 'Grace is God’s free, unmerited goodness — favor no one can earn. Christianity teaches that salvation is by grace: not a wage paid for good behavior but a gift given freely through Jesus Christ, received by faith. Grace also names the ongoing help God gives to live a new life.',
+    see_also: ['Gospel', 'Justification', 'Sanctification'],
+  },
+  {
+    term: 'Justification',
+    short: 'God declaring a believing sinner right with him.',
+    long: 'Justification is a legal picture: God, the righteous Judge, declares a person “not guilty” and counts them righteous — not because of their own works but because of Christ’s righteousness received by faith. It is a status God grants, the beginning of the Christian life rather than a reward at its end.',
+    see_also: ['Grace', 'Atonement', 'Sanctification'],
+  },
+  {
+    term: 'Repentance',
+    short: 'A turning from sin and back toward God.',
+    long: 'Repentance is a change of mind and direction — turning away from sin and self and toward God. It is more than feeling sorry; it is a reorientation of the whole life. In the New Testament, repentance and faith go together as the response to the gospel.',
+    see_also: ['Gospel', 'Grace'],
+  },
+  {
+    term: 'Sanctification',
+    short: 'The lifelong process of being made holy.',
+    long: 'If justification is being declared right with God in an instant, sanctification is the ongoing work of actually becoming like Christ over a lifetime. It is the Holy Spirit gradually transforming a believer’s character, desires, and conduct — a cooperative growth in holiness.',
+    see_also: ['Justification', 'Grace'],
+  },
+  {
+    term: 'Trinity',
+    short: 'One God eternally existing as Father, Son, and Holy Spirit.',
+    long: 'The Trinity is the Christian understanding of God: one Being in three co-equal, co-eternal persons — Father, Son, and Holy Spirit. Not three gods, and not one person in three modes, but one God in three persons. It is confessed in the ancient creeds and drawn from the whole witness of Scripture.',
+    see_also: ['Gospel', 'Holy Spirit', 'Incarnation'],
+  },
+  {
+    term: 'Apostle',
+    short: 'One “sent out” — especially Jesus’ chosen witnesses.',
+    long: 'An apostle is one sent with authority to represent another. In the New Testament it refers especially to the twelve disciples Jesus chose, and to others like Paul, commissioned as eyewitnesses and foundational teachers of the early Church.',
+    see_also: ['Church', 'Gospel'],
+  },
+  {
+    term: 'Baptism',
+    short: 'The washing that marks entry into the Christian faith.',
+    long: 'Baptism is the sign of belonging to Christ and his Church, using water in the name of the Father, Son, and Holy Spirit. Christians differ over its meaning and who should receive it, but nearly all practice it as commanded by Jesus.',
+    see_also: ['Church', 'Repentance'],
+  },
+  {
+    term: 'Church',
+    short: 'The community of all who belong to Christ.',
+    long: 'The Church is not a building but the people of God — everyone united to Christ by faith, worldwide and across history. The New Testament pictures it as Christ’s body, his bride, and a family, gathered to worship, love, and serve.',
+    see_also: ['Gospel', 'Baptism', 'Lord’s Supper'],
+  },
+  {
+    term: 'Faith',
+    short: 'Trust in God and in what he has promised.',
+    long: 'Faith is more than agreeing that something is true; it is trust — resting in God and relying on Jesus for salvation. It is the means by which grace is received, and it shows itself in a life of obedience and love.',
+    see_also: ['Grace', 'Gospel', 'Justification'],
+  },
+  {
+    term: 'Heaven',
+    short: 'God’s presence, and the eternal home of his people.',
+    long: 'Heaven is where God’s presence and rule are fully known. Christian hope is not merely “going to heaven” as disembodied souls, but resurrection life with God in a renewed creation — the new heavens and new earth.',
+    see_also: ['Resurrection', 'Kingdom of God'],
+  },
+  {
+    term: 'Hell',
+    short: 'Final separation from God for the unrepentant.',
+    long: 'Hell is the sober biblical warning of final judgment — being cut off from God’s presence and goodness. Christians hold it seriously and soberly; it is part of why the gospel is such urgent good news.',
+    see_also: ['Gospel', 'Repentance'],
+  },
+  {
+    term: 'Holy Spirit',
+    short: 'God himself, present and at work in the world and in believers.',
+    long: 'The Holy Spirit is the third person of the Trinity — fully God, not merely a force. The Spirit gives new birth, dwells in believers, produces Christlike character, empowers for service, and unites the Church.',
+    see_also: ['Trinity', 'Sanctification', 'Church'],
+  },
+  {
+    term: 'Incarnation',
+    short: 'God the Son becoming human in Jesus.',
+    long: 'The Incarnation is the truth that the eternal Son of God took on human nature and was born as Jesus of Nazareth — fully God and fully man in one person. It is the heart of Christmas and the foundation of salvation.',
+    see_also: ['Trinity', 'Gospel', 'Atonement'],
+  },
+  {
+    term: 'Kingdom of God',
+    short: 'God’s reign — already begun in Jesus, not yet complete.',
+    long: 'The Kingdom of God is God’s saving rule, breaking into the world through Jesus. It is “already” present wherever he is honored, and “not yet” fully realized until he returns to make all things right.',
+    see_also: ['Gospel', 'Heaven'],
+  },
+  {
+    term: 'Lord’s Supper',
+    short: 'The bread and cup that remember Christ’s death.',
+    long: 'Also called Communion or the Eucharist, the Lord’s Supper is the meal Jesus gave his followers — bread and cup recalling his body and blood given for them. Traditions understand his presence differently, but all treat it as sacred.',
+    see_also: ['Church', 'Atonement'],
+  },
+  {
+    term: 'Mercy',
+    short: 'God’s compassion that withholds deserved judgment.',
+    long: 'Mercy is God not giving us the punishment our sin deserves, moved by his compassion. Closely tied to grace, it is shown supremely at the cross — and God calls those who receive mercy to show it to others.',
+    see_also: ['Grace', 'Atonement'],
+  },
+  {
+    term: 'Messiah',
+    short: 'The promised, anointed deliverer — Jesus the Christ.',
+    long: '“Messiah” (Hebrew) and “Christ” (Greek) both mean “anointed one.” The Old Testament looked for an anointed king to save God’s people; Christians confess that Jesus is that promised Messiah.',
+    see_also: ['Gospel', 'Covenant'],
+  },
+  {
+    term: 'Providence',
+    short: 'God’s wise care and rule over all things.',
+    long: 'Providence is the truth that God sustains and governs all that happens, working even hardship toward good purposes for those who love him. It grounds Christian trust and peace amid uncertainty.',
+    see_also: ['Grace'],
+  },
+  {
+    term: 'Redemption',
+    short: 'Being bought back and set free by Christ.',
+    long: 'Redemption pictures rescue at a price — as a slave set free or a debt paid. Christianity teaches that Jesus redeems his people by his death, freeing them from sin’s guilt and power.',
+    see_also: ['Atonement', 'Grace', 'Salvation'],
+  },
+  {
+    term: 'Resurrection',
+    short: 'Rising bodily from death — Christ’s, and his people’s.',
+    long: 'Resurrection is bodily return to life, never to die again. Jesus’ resurrection is the center of the Christian faith and the guarantee that all who belong to him will likewise be raised to eternal life.',
+    see_also: ['Gospel', 'Heaven'],
+  },
+  {
+    term: 'Righteousness',
+    short: 'Being right with God and doing what is right.',
+    long: 'Righteousness means both a right standing before God and right living. Christianity teaches that we cannot achieve it on our own; God credits Christ’s righteousness to those who trust him, then works real change in them.',
+    see_also: ['Justification', 'Grace', 'Sanctification'],
+  },
+  {
+    term: 'Salvation',
+    short: 'God’s rescue of people from sin and its consequences.',
+    long: 'Salvation is the whole of what God does to rescue people — forgiving sin, reconciling them to himself, giving new life, and finally raising them to eternal life. It is God’s work from start to finish, received by faith.',
+    see_also: ['Grace', 'Gospel', 'Redemption'],
+  },
+  {
+    term: 'Sin',
+    short: 'Falling short of God’s will — in act, word, and heart.',
+    long: 'Sin is any failure to love God and others as we should — not only wrong deeds but a deep condition of the human heart. It separates people from God and is the problem the gospel answers.',
+    see_also: ['Repentance', 'Grace', 'Atonement'],
+  },
+]

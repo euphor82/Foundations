@@ -1,0 +1,23 @@
+.collapse {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  margin-bottom: 9px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.collapse-head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px;
+  text-align: left;
+}
+.collapse-title { font-family: var(--serif); font-size: 16px; font-weight: 700; flex: 1; }
+.collapse-meta { font-size: 11.5px; color: var(--muted); font-weight: 600; flex: 0 0 auto; }
+.collapse .chev { color: var(--gold); font-size: 13px; transition: transform .25s ease; flex: 0 0 auto; }
+.collapse.open .chev { transform: rotate(90deg); }
+.collapse-body { padding: 0 14px 16px; border-top: 1px solid var(--line); }
+.collapse-body { animation: fade .18s ease; }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }

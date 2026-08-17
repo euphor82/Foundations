@@ -1,0 +1,122 @@
+import type { Denomination } from './types'
+
+export const DENOM_INTRO =
+  'Christians are divided into many traditions, yet the historic churches share a great deal: the Trinity, the deity and resurrection of Jesus, salvation through him, the authority of Scripture, and the ancient creeds. These summaries describe where the major families differ on secondary questions — church government, the sacraments, and how grace is understood — while remembering what unites them.'
+
+export const DENOM_COMMON =
+  "Nearly all these traditions affirm the Apostles' and Nicene Creeds: one God in three persons; Jesus as fully God and fully man, crucified, risen, and returning; the forgiveness of sins; and the hope of eternal life."
+
+/* Ordered so the detail view groups by family sensibly:
+ * Catholic, Orthodox, then the Protestant families, then non-denominational. */
+export const DENOMINATIONS: Denomination[] = [
+  {
+    name: 'Roman Catholic Church',
+    family: 'Roman Catholic',
+    origin: 'Traces its continuity to the apostles and the church of the first centuries; defined against the Reformation at the Council of Trent (1545–63).',
+    distinctives: 'The largest Christian body (~1.3 billion). Emphasizes apostolic succession, seven sacraments, the communion of saints, and the authority of the Pope as successor of Peter.',
+    authority: "Scripture and Sacred Tradition, interpreted by the Church's teaching office (the Magisterium).",
+    baptism: 'Infant baptism, understood to convey grace and incorporate the child into the Church.',
+    communion: 'The Eucharist as the true body and blood of Christ (transubstantiation); central to worship in the Mass.',
+    governance: 'Hierarchical — Pope, bishops, and priests in apostolic succession.',
+    salvation: 'By God’s grace, received through faith and cooperated with in the sacraments and a life of love; grace and works are held together.',
+    see_also: ['Grace', 'Justification'],
+  },
+  {
+    name: 'Eastern Orthodox Church',
+    family: 'Eastern Orthodox',
+    origin: 'Shares the early church’s continuity with Rome until the Great Schism of 1054, after which East and West went separate ways.',
+    distinctives: 'About 220 million believers. Ancient liturgy, veneration of icons, seven sacred “mysteries,” and salvation as union with God (theosis).',
+    authority: 'Scripture within Holy Tradition, interpreted by the whole church and the seven ecumenical councils.',
+    baptism: 'Infant baptism (usually by immersion), immediately followed by chrismation and first communion.',
+    communion: 'The Eucharist as truly the body and blood of Christ — a holy mystery, without the Western definition of transubstantiation.',
+    governance: 'Conciliar — self-governing national churches led by bishops and patriarchs; the Patriarch of Constantinople is honored as “first among equals.”',
+    salvation: 'By grace, as a lifelong process of union with God (theosis) through faith, the mysteries, and cooperation with the Spirit.',
+    see_also: ['Grace', 'Sanctification'],
+  },
+  {
+    name: 'Lutheran',
+    family: 'Protestant — Lutheran',
+    origin: 'Born in the Reformation Martin Luther sparked in 1517 over the gospel of grace.',
+    distinctives: 'Justification by faith alone, grace alone, Scripture alone; a careful distinction between God’s law and the gospel.',
+    authority: 'Scripture as the final norm, confessed in the Book of Concord.',
+    baptism: 'Infant baptism, received as a genuine means of God’s grace.',
+    communion: 'The real presence — Christ truly given “in, with, and under” the bread and wine.',
+    governance: 'Varies by region — often episcopal or synodical structures.',
+    salvation: 'By grace alone through faith alone in Christ, apart from works.',
+    see_also: ['Grace', 'Justification', 'Gospel'],
+  },
+  {
+    name: 'Presbyterian / Reformed',
+    family: 'Protestant — Reformed',
+    origin: 'Flows from the Reformation work of John Calvin (and John Knox in Scotland) in the 16th century.',
+    distinctives: 'The sovereignty of God over all things, covenant theology, and (in many churches) the “doctrines of grace,” including election.',
+    authority: 'Scripture alone as final authority, summarized in confessions such as the Westminster Standards.',
+    baptism: 'Infant baptism as a sign and seal of God’s covenant, alongside believer’s baptism.',
+    communion: 'The Lord’s Supper as a true spiritual feeding on Christ, received by faith.',
+    governance: 'Presbyterian — congregations led by elders, in graded assemblies (sessions, presbyteries, assemblies).',
+    salvation: 'By grace alone through faith alone, with strong emphasis on God’s sovereign initiative in saving.',
+    see_also: ['Grace', 'Justification', 'Providence'],
+  },
+  {
+    name: 'Anglican / Episcopal',
+    family: 'Protestant — Anglican',
+    origin: 'Emerged from the English Reformation of the 16th century in the Church of England.',
+    distinctives: 'A “middle way” between Catholic and Reformed, shaped by the Book of Common Prayer and a breadth of churchmanship.',
+    authority: 'Scripture as supreme, held together with tradition and reason, and the ancient creeds.',
+    baptism: 'Infant baptism, understood as incorporation into Christ and his Church.',
+    communion: 'The real presence of Christ in the Lord’s Supper, understood in various ways; central to worship.',
+    governance: 'Episcopal — led by bishops; the Archbishop of Canterbury is a focus of worldwide unity.',
+    salvation: 'By grace through faith in Christ, with room for a range of emphases.',
+    see_also: ['Grace', 'Justification'],
+  },
+  {
+    name: 'Baptist',
+    family: 'Protestant — Baptist',
+    origin: 'Emerged in the early 1600s among English Separatists insisting on a church of believers only, baptized on profession of faith.',
+    distinctives: "Believer's baptism by full immersion, the autonomy of the local congregation, and “soul liberty” — each person accountable to God directly.",
+    authority: 'Scripture alone (sola scriptura) as the final authority for faith and practice.',
+    baptism: "Believer's baptism by immersion; infants are not baptized. An outward sign of an inward faith, not a means of grace.",
+    communion: "The Lord's Supper as a memorial and proclamation of Christ's death, not a change in the elements.",
+    governance: 'Congregational — each local church is self-governing, often loosely associated in conventions.',
+    salvation: 'By grace alone through faith alone in Christ alone; a personal conversion is emphasized.',
+    see_also: ['Grace', 'Gospel', 'Repentance'],
+  },
+  {
+    name: 'Methodist',
+    family: 'Protestant — Methodist',
+    origin: 'Grew out of an 18th-century revival led by John Wesley within the Church of England.',
+    distinctives: 'A warm-hearted faith stressing personal holiness, God’s grace freely offered to all (Wesleyan-Arminian), and active social concern.',
+    authority: 'Scripture as primary, weighed with tradition, reason, and experience (the “Wesleyan Quadrilateral”).',
+    baptism: 'Both infant and believer’s baptism, received as a means of grace.',
+    communion: 'The Lord’s Supper as a means of grace, with Christ truly present spiritually.',
+    governance: 'Connectional — congregations linked in conferences, often led by bishops or superintendents.',
+    salvation: 'By grace through faith, offered freely to everyone, leading to growth in holiness of heart and life.',
+    see_also: ['Grace', 'Sanctification'],
+  },
+  {
+    name: 'Pentecostal',
+    family: 'Protestant — Pentecostal',
+    origin: 'Born in early-1900s revivals (notably Azusa Street, 1906), emphasizing a renewed experience of the Holy Spirit.',
+    distinctives: 'Vibrant, experiential worship and the active use of spiritual gifts — including healing, prophecy, and speaking in tongues — as normal for believers today.',
+    authority: 'Scripture as final authority, alongside an expectation that the Spirit works powerfully in the present.',
+    baptism: "Usually believer's baptism; also teaches a distinct “baptism in the Holy Spirit,” often marked by speaking in tongues.",
+    communion: "The Lord's Supper as a memorial, celebrated with thanksgiving.",
+    governance: 'Varies — congregational and connectional forms both exist across many Pentecostal bodies.',
+    salvation: 'By grace through faith in Christ, with strong emphasis on personal conversion and an ongoing, Spirit-empowered life.',
+    see_also: ['Sanctification', 'Grace', 'Holy Spirit'],
+  },
+  {
+    name: 'Non-denominational / Community',
+    family: 'Non-denominational',
+    origin: 'Largely a 20th–21st-century movement of independent congregations not tied to any single denomination.',
+    distinctives: 'Bible-centered teaching, contemporary worship, and local independence; broadly evangelical in conviction.',
+    authority: 'Scripture alone as the final authority for faith and practice.',
+    baptism: "Usually believer's baptism by immersion on profession of faith.",
+    communion: 'The Lord’s Supper as a memorial of Christ’s death; frequency varies by church.',
+    governance: 'Independent — each church governs itself, commonly led by a board of elders or a lead pastor.',
+    salvation: 'By grace through faith in Christ, with a strong emphasis on personal conversion.',
+    see_also: ['Grace', 'Gospel', 'Repentance'],
+  },
+]
+
+export const DENOM_FAMILIES = [...new Set(DENOMINATIONS.map((d) => d.family))]

@@ -1,0 +1,14 @@
+.bookgroup { margin-bottom: 16px; }
+.groupname {
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--serif); font-size: 14px; font-weight: 700; color: var(--ink-soft);
+  margin: 12px 2px 8px;
+}
+.groupcount { font-family: var(--sans); font-size: 11px; font-weight: 700; color: var(--muted); }
+.read-name { color: var(--muted); }
+.readdot { color: var(--gold); font-size: 13px; flex: 0 0 auto; }
+.readbtn {
+  width: 100%; padding: 11px 0; font-size: 13px; font-weight: 700; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink-soft); letter-spacing: .2px;
+}
+.readbtn.on { background: color-mix(in srgb, var(--gold) 13%, transparent); border-color: var(--gilt); color: var(--gold); }
