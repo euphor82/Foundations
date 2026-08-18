@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // Base path for GitHub Pages project site: https://euphor82.github.io/foundations/
 export default defineConfig({
-  base: '/foundations/',
+  base: './',
   plugins: [
     react(),
     VitePWA({
