@@ -10,6 +10,7 @@ const ATTRS = [
   { key: 'baptism', label: 'Baptism' },
   { key: 'communion', label: 'Communion' },
   { key: 'governance', label: 'Governance' },
+  { key: 'leadership', label: 'Leadership' },
   { key: 'salvation', label: 'Salvation' },
 ]
 
@@ -52,6 +53,7 @@ export function DenominationsView() {
                 <Field k="Baptism" v={d.baptism} />
                 <Field k="Communion" v={d.communion} />
                 <Field k="Church governance" v={d.governance} />
+                <Field k="Leadership & structure" v={d.leadership} />
                 <Field k="Salvation" v={d.salvation} />
                 {d.see_also?.length ? (
                   <div className="seealso">

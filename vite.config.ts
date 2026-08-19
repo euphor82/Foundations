@@ -2,7 +2,8 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// Base path for GitHub Pages project site: https://euphor82.github.io/foundations/
+// Relative base so the app works at ANY path — the repo/site name's case
+// (e.g. /Foundations/ vs /foundations/) then doesn't matter on GitHub Pages.
 export default defineConfig({
   base: './',
   plugins: [

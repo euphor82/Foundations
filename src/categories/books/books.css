@@ -12,3 +12,5 @@
   border: 1px solid var(--line); background: var(--card); color: var(--ink-soft); letter-spacing: .2px;
 }
 .readbtn.on { background: color-mix(in srgb, var(--gold) 13%, transparent); border-color: var(--gilt); color: var(--gold); }
+
+.person-link { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gilt); }

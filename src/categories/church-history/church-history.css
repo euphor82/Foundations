@@ -1,0 +1,19 @@
+.chr { position: relative; padding-left: 26px; margin: 0; }
+.chr::before {
+  content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px;
+  background: linear-gradient(var(--gilt), var(--line));
+}
+.chr-period { position: relative; margin-bottom: 26px; }
+.chr-period::before {
+  content: ''; position: absolute; left: -24px; top: 6px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--paper); border: 2.5px solid var(--gold);
+}
+.chr-when { font-size: 11px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--gold); }
+.chr-name { font-size: 18px; font-weight: 700; margin: 1px 0 4px; }
+.chr-sum { font-size: 13.5px; color: var(--muted); font-style: italic; margin: 0 0 12px; }
+.chr-ev { border-left: 2px solid var(--line); padding: 2px 0 2px 12px; margin: 0 0 13px; }
+.chr-ev-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.chr-ev-title { font-weight: 700; font-size: 14.5px; }
+.chr-ev-when { font-size: 11px; color: var(--gold); font-weight: 700; white-space: nowrap; }
+.chr-ev-sum { font-size: 13.5px; color: var(--ink-soft); margin: 3px 0 7px; }
+.chr-people { display: flex; flex-wrap: wrap; gap: 6px; }

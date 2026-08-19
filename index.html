@@ -8,9 +8,20 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Foundations" />
-    <link rel="icon" href="/foundations/icons/icon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/foundations/icons/apple-touch-icon.png" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
     <title>Foundations — A Christian Resource</title>
+    <script>
+      // Apply the saved theme (System default) before paint to avoid a flash.
+      (function () {
+        try {
+          var m = localStorage.getItem('fdn.theme');
+          m = m ? JSON.parse(m) : 'system';
+          var dark = m === 'dark' || (m === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

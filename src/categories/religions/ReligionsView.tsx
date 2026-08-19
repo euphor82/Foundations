@@ -56,6 +56,20 @@ export function ReligionsView() {
                 <ul className="bullets">{r.differences.map((d, i) => <li key={i}>{d}</li>)}</ul>
                 <div className="lab">Common ground</div>
                 <p className="prose">{r.shared}</p>
+                {r.contrasts?.length ? (
+                  <>
+                    <div className="lab">Beliefs &amp; Scripture</div>
+                    <div className="contrasts">
+                      {r.contrasts.map((c, i) => (
+                        <div className="contrast" key={i}>
+                          <p className="c-line"><span className="c-tag teach">They teach</span> {c.belief}</p>
+                          <div className="verse"><span className="q">“{c.verse.text}”</span><span className="ref">{c.verse.ref}</span></div>
+                          <p className="c-line"><span className="c-tag answer">Scripture</span> {c.response}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ) : null}
                 {r.see_also?.length ? (
                   <div className="seealso">
                     <p className="k">See also</p>

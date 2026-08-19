@@ -20,6 +20,28 @@ export const RELIGIONS: Religion[] = [
       'Christians believe righteousness comes as a gift through faith in Christ; Jewish thought centers on covenant faithfulness and Torah.',
     ],
     shared: 'Christianity grew out of Judaism and shares the Hebrew Scriptures, belief in one Creator God, the moral law, and the hope of a coming redemption.',
+    contrasts: [
+      {
+        belief: 'Jesus is not the Messiah; the Messiah is still to come.',
+        response: 'The prophets foretold a suffering Messiah, pierced for our sins — and Jesus fulfilled it precisely. To reject him is to reject the One God promised and sent.',
+        verse: { ref: 'Isaiah 53:5', text: 'But he was pierced for our transgressions; he was crushed for our iniquities; upon him was the chastisement that brought us peace, and with his wounds we are healed.' },
+      },
+      {
+        belief: 'God is one person; he has no son and is not triune.',
+        response: 'Jesus took the divine name and claimed to exist before Abraham. Either he is the one God he claimed to be, or he is not to be followed at all.',
+        verse: { ref: 'John 8:58', text: 'Jesus said to them, “Truly, truly, I say to you, before Abraham was, I am.”' },
+      },
+      {
+        belief: 'Right standing with God comes through the covenant and keeping the Law.',
+        response: 'No one is justified by keeping the Law; it only exposes sin. Righteousness is a gift, received through faith in the Messiah.',
+        verse: { ref: 'Galatians 2:16', text: 'A person is not justified by works of the law but through faith in Jesus Christ.' },
+      },
+      {
+        belief: 'Since the temple’s fall, sin is atoned for by repentance and good deeds, without sacrifice.',
+        response: 'Scripture is unbending: without the shedding of blood there is no forgiveness. Christ is the once-for-all sacrifice the whole temple system pointed toward.',
+        verse: { ref: 'Hebrews 9:22', text: 'Without the shedding of blood there is no forgiveness of sins.' },
+      },
+    ],
     see_also: ['Covenant', 'Grace'],
   },
   {
@@ -37,6 +59,33 @@ export const RELIGIONS: Religion[] = [
       'Christians confess God as Trinity; Islam regards that as a compromise of God’s oneness.',
     ],
     shared: 'Both are monotheistic, trace themselves to Abraham, revere many of the same figures (Adam, Noah, Abraham, Moses, Jesus), and affirm a final judgment and moral accountability before God.',
+    contrasts: [
+      {
+        belief: 'Jesus was only a prophet; God has no son, and calling Jesus divine is blasphemy.',
+        response: 'Scripture calls Jesus God in the flesh and warns that to deny the Son is to reject the Father as well. No one honors God while rejecting his Son.',
+        verse: { ref: '1 John 2:23', text: 'No one who denies the Son has the Father. Whoever confesses the Son has the Father also.' },
+      },
+      {
+        belief: 'Jesus was not crucified; God rescued him and another died in his place.',
+        response: 'The crucifixion is the best-attested event of the Gospels and the very heart of the good news — Christ died for sins and rose again. Deny the cross and you deny the gospel itself.',
+        verse: { ref: '1 Corinthians 15:3-4', text: 'Christ died for our sins in accordance with the Scriptures, that he was buried, that he was raised on the third day in accordance with the Scriptures.' },
+      },
+      {
+        belief: 'Salvation is earned by submission and good deeds weighed at the judgment.',
+        response: 'No weight of good deeds can earn heaven. Salvation is a gift of grace received by faith, so that no one can boast.',
+        verse: { ref: 'Ephesians 2:8-9', text: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works, so that no one may boast.' },
+      },
+      {
+        belief: 'The Qur’an corrects the Bible, which is said to have been corrupted.',
+        response: 'God’s word does not fail and cannot be corrupted out of existence — it stands forever. A later book that contradicts it cannot be from the same God.',
+        verse: { ref: 'Isaiah 40:8', text: 'The grass withers, the flower fades, but the word of our God will stand forever.' },
+      },
+      {
+        belief: 'God is a single person; the Trinity divides God and is idolatry.',
+        response: 'The one God eternally exists as Father, Son, and Holy Spirit — not three gods, but one God in three persons, into whose single name believers are baptized.',
+        verse: { ref: 'Matthew 28:19', text: 'Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit.' },
+      },
+    ],
     see_also: ['Grace', 'Gospel'],
   },
   {
@@ -54,6 +103,23 @@ export const RELIGIONS: Religion[] = [
       'Christian hope is restored relationship with God; Buddhist hope is the cessation of craving and suffering.',
     ],
     shared: 'Both take human suffering seriously, call for compassion and self-denial, and teach that grasping and selfish desire are at the root of much human misery.',
+    contrasts: [
+      {
+        belief: 'There is no Creator God; ultimate reality is impersonal.',
+        response: 'A personal God made all things and rules over them. Creation itself testifies to him, leaving no one without witness.',
+        verse: { ref: 'Genesis 1:1', text: 'In the beginning, God created the heavens and the earth.' },
+      },
+      {
+        belief: 'Liberation (nirvana) is achieved by our own effort along the Eightfold Path.',
+        response: 'We cannot rescue ourselves. Salvation is God’s gift in Christ, received by grace — never the fruit of self-effort.',
+        verse: { ref: 'Titus 3:5', text: 'He saved us, not because of works done by us in righteousness, but according to his own mercy.' },
+      },
+      {
+        belief: 'People are reborn through many lives, and the self is ultimately an illusion.',
+        response: 'We live once, then face judgment — and the self is real, made in God’s image, and will be raised. There is no wheel of endless rebirth to escape.',
+        verse: { ref: 'Hebrews 9:27', text: 'It is appointed for man to die once, and after that comes judgment.' },
+      },
+    ],
     see_also: ['Repentance'],
   },
   {
@@ -71,6 +137,23 @@ export const RELIGIONS: Religion[] = [
       'Christian salvation is a gift of grace received by faith in Christ; Hindu liberation is worked out over lifetimes through devotion, deeds, and insight.',
     ],
     shared: 'Both take the spiritual dimension of life seriously, value devotion and self-discipline, and hold that human beings are accountable for how they live.',
+    contrasts: [
+      {
+        belief: 'There are many gods, and behind them an impersonal ultimate reality (Brahman).',
+        response: 'There is only one true God, and he shares his glory with no other. Whatever else is called “god” is no god at all.',
+        verse: { ref: 'Isaiah 45:5', text: 'I am the LORD, and there is no other, besides me there is no God.' },
+      },
+      {
+        belief: 'The soul is ultimately divine and merges with Brahman.',
+        response: 'We are creatures, not God. Our hope is not to dissolve into the divine but to be reconciled to the God who made us.',
+        verse: { ref: 'Psalm 100:3', text: 'Know that the LORD, he is God! It is he who made us, and we are his.' },
+      },
+      {
+        belief: 'Release (moksha) comes through many lifetimes of karma, devotion, and works.',
+        response: 'There are not many lives to work off sin. There is one life, then judgment — and rescue is a free gift, not a wage earned across lifetimes.',
+        verse: { ref: 'Romans 6:23', text: 'For the wages of sin is death, but the free gift of God is eternal life in Christ Jesus our Lord.' },
+      },
+    ],
     see_also: ['Grace', 'Salvation'],
   },
   {
@@ -88,6 +171,23 @@ export const RELIGIONS: Religion[] = [
       'Christianity affirms one life and resurrection; Sikhism affirms reincarnation until union with God.',
     ],
     shared: 'Both affirm one Creator God, reject empty ritual and hypocrisy, and stress honest work, humility, service, and care for the poor.',
+    contrasts: [
+      {
+        belief: 'God is one, but not triune, and Jesus is not the divine Son or the only Savior.',
+        response: 'Jesus is the only way to God — there is salvation in no one else. To bypass the Son is to miss the Father.',
+        verse: { ref: 'Acts 4:12', text: 'And there is salvation in no one else, for there is no other name under heaven given among men by which we must be saved.' },
+      },
+      {
+        belief: 'Union with God comes through devotion, honest living, good deeds, and meditation on the Name.',
+        response: 'Our works cannot unite us to God; only grace through faith in Christ can. Salvation is received, not achieved.',
+        verse: { ref: 'Ephesians 2:8-9', text: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works.' },
+      },
+      {
+        belief: 'All religions are different paths up the same mountain to the one God.',
+        response: 'Jesus did not claim to be one path among many but the only way to the Father. Sincere roads that reject him do not arrive at God.',
+        verse: { ref: 'John 14:6', text: 'Jesus said to him, “I am the way, and the truth, and the life. No one comes to the Father except through me.”' },
+      },
+    ],
     see_also: ['Grace', 'Righteousness'],
   },
   {
@@ -105,6 +205,38 @@ export const RELIGIONS: Religion[] = [
       'Christianity teaches salvation by grace through faith alone in Christ; LDS joins grace with required ordinances and obedience.',
     ],
     shared: 'Latter-day Saints revere Jesus, hold the Bible in high regard, and are known for strong families, moral living, and generous service.',
+    contrasts: [
+      {
+        belief: 'God the Father was once a man who progressed to become God (“as man is, God once was; as God is, man may become”).',
+        response: 'God was never a man who became God. He is God from everlasting to everlasting, unchanging, and before him no god ever existed.',
+        verse: { ref: 'Isaiah 43:10', text: 'Before me no god was formed, nor shall there be any after me.' },
+      },
+      {
+        belief: 'There are many gods, and faithful humans can themselves become gods (exaltation).',
+        response: 'There is one God and no other — the first and the last. Human beings do not and cannot become gods.',
+        verse: { ref: 'Isaiah 44:6', text: 'I am the first and I am the last; besides me there is no god.' },
+      },
+      {
+        belief: 'The Father, Son, and Holy Spirit are three separate gods or beings.',
+        response: 'The LORD our God is one. The three persons are one God — not three gods.',
+        verse: { ref: 'Deuteronomy 6:4', text: 'Hear, O Israel: The LORD our God, the LORD is one.' },
+      },
+      {
+        belief: 'God the Father has a physical body of flesh and bones.',
+        response: 'God is spirit, not a man with a body. To picture God as an exalted man is to remake him in our own image.',
+        verse: { ref: 'John 4:24', text: 'God is spirit, and those who worship him must worship in spirit and truth.' },
+      },
+      {
+        belief: 'Salvation comes by grace together with faith, temple ordinances, and obedience.',
+        response: 'Salvation is by grace through faith alone, apart from works — a gift, so that no one may boast.',
+        verse: { ref: 'Ephesians 2:8-9', text: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works, so that no one may boast.' },
+      },
+      {
+        belief: 'The Book of Mormon and later revelations are added Scripture alongside the Bible.',
+        response: 'Scripture pronounces a curse on any “new gospel” that contradicts the one already delivered — even if an angel from heaven should bring it.',
+        verse: { ref: 'Galatians 1:8', text: 'But even if we or an angel from heaven should preach to you a gospel contrary to the one we preached to you, let him be accursed.' },
+      },
+    ],
     see_also: ['Grace', 'Trinity', 'Gospel'],
   },
   {
@@ -122,6 +254,33 @@ export const RELIGIONS: Religion[] = [
       'Christianity teaches salvation by grace through faith in Christ; the Witnesses stress works, obedience, and evangelistic activity.',
     ],
     shared: 'Jehovah’s Witnesses honor the Bible, take God’s name seriously, live disciplined moral lives, and are earnest in sharing their faith.',
+    contrasts: [
+      {
+        belief: 'Jesus is a created being (Michael the archangel), not God; the New World Translation renders John 1:1 as “a god.”',
+        response: 'Jesus is the eternal Word who was God, and Thomas worshiped him as “my Lord and my God” without rebuke. A creature cannot be the Creator of all things.',
+        verse: { ref: 'John 1:1', text: 'In the beginning was the Word, and the Word was with God, and the Word was God.' },
+      },
+      {
+        belief: 'Because he is created, Jesus is not to be worshiped as God.',
+        response: 'By him all things were created — so he stands outside creation, not within it. Scripture openly calls the Son God.',
+        verse: { ref: 'Colossians 1:16', text: 'For by him all things were created, in heaven and on earth, visible and invisible.' },
+      },
+      {
+        belief: 'The Holy Spirit is an impersonal active force, not a person.',
+        response: 'You cannot lie to a force. The Spirit speaks, sends, and is lied to — and to lie to the Spirit is to lie to God himself.',
+        verse: { ref: 'Acts 5:3-4', text: 'Why has Satan filled your heart to lie to the Holy Spirit... You have not lied to man but to God.' },
+      },
+      {
+        belief: 'Jesus was raised as a spirit, not bodily.',
+        response: 'The risen Jesus showed his hands and feet and said that a spirit has no flesh and bones as he does. The resurrection was bodily.',
+        verse: { ref: 'Luke 24:39', text: 'See my hands and my feet, that it is I myself. Touch me, and see. For a spirit does not have flesh and bones as you see that I have.' },
+      },
+      {
+        belief: 'Salvation depends on works, loyalty to the organization, and door-to-door preaching.',
+        response: 'Salvation is by grace through faith in Christ — not by works or organizational loyalty. It is God’s gift.',
+        verse: { ref: 'Ephesians 2:8-9', text: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works.' },
+      },
+    ],
     see_also: ['Trinity', 'Grace', 'Resurrection'],
   },
   {
@@ -139,6 +298,28 @@ export const RELIGIONS: Religion[] = [
       'Christianity hopes in resurrection and eternal life; atheism sees death as the end.',
     ],
     shared: 'Both can affirm the dignity and worth of human beings, the value of reason and honest inquiry, and a deep concern for justice and human flourishing.',
+    contrasts: [
+      {
+        belief: 'There is no God; the material universe is all that exists.',
+        response: 'Creation itself shouts that God is real. His power and nature are plainly seen in what he has made, so that no one has an excuse.',
+        verse: { ref: 'Romans 1:20', text: 'For his invisible attributes, namely, his eternal power and divine nature, have been clearly perceived, ever since the creation of the world, in the things that have been made. So they are without excuse.' },
+      },
+      {
+        belief: 'To deny God is the reasonable, intelligent position.',
+        response: 'Scripture calls the denial of God not wisdom but folly — a suppression of what is plainly known.',
+        verse: { ref: 'Psalm 14:1', text: 'The fool says in his heart, “There is no God.”' },
+      },
+      {
+        belief: 'Morality is a human invention — relative and always changing.',
+        response: 'God’s moral law is written on every human heart, which is why even those who deny him cannot stop making real moral judgments.',
+        verse: { ref: 'Romans 2:15', text: 'They show that the work of the law is written on their hearts, while their conscience also bears witness.' },
+      },
+      {
+        belief: 'Death is the end; there is no afterlife or judgment.',
+        response: 'Every person dies once and then faces God’s judgment. This life is not the whole story.',
+        verse: { ref: 'Hebrews 9:27', text: 'It is appointed for man to die once, and after that comes judgment.' },
+      },
+    ],
     see_also: ['Providence', 'Righteousness'],
   },
 ]

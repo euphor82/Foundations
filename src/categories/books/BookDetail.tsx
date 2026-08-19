@@ -1,11 +1,31 @@
 import { Link } from 'react-router-dom'
 import type { Book } from './types'
 import { eraName, hasEra } from '../timeline/data'
+import { characterExists } from '../characters/data'
 
 interface Props {
   book: Book
   isRead: boolean
   onToggleRead: () => void
+}
+
+/** Render a Key Person name, linking each name that matches a character
+ *  profile — splitting compound entries like "Adam & Eve" so each links. */
+function PersonName({ name }: { name: string }) {
+  const parts = name.split(/(\s*&\s*|,\s+)/)
+  return (
+    <>
+      {parts.map((part, i) =>
+        /^(\s*&\s*|,\s+)$/.test(part) || !characterExists(part) ? (
+          <span key={i}>{part}</span>
+        ) : (
+          <Link key={i} className="person-link" to={`/characters?open=${encodeURIComponent(part)}`}>
+            {part}
+          </Link>
+        ),
+      )}
+    </>
+  )
 }
 
 export function BookDetail({ book, isRead, onToggleRead }: Props) {
@@ -51,7 +71,7 @@ export function BookDetail({ book, isRead, onToggleRead }: Props) {
       <ul className="bullets">
         {book.chars.map((c) => (
           <li key={c.n}>
-            <b>{c.n}</b> — {c.d}
+            <b><PersonName name={c.n} /></b> — {c.d}
           </li>
         ))}
       </ul>

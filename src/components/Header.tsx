@@ -6,7 +6,9 @@ import { Logo } from './Logo'
 export function Header() {
   const location = useLocation()
   const navigate = useNavigate()
-  const { theme, toggle } = useTheme()
+  const { mode, cycle } = useTheme()
+  const themeIcon = mode === 'system' ? '◐' : mode === 'dark' ? '☾' : '☀'
+  const themeLabel = mode === 'system' ? 'System theme' : mode === 'dark' ? 'Dark theme' : 'Light theme'
   const category = categoryByPath(location.pathname)
   const isHome = location.pathname === '/' || !category
 
@@ -23,8 +25,8 @@ export function Header() {
           <h1>{category ? category.title : 'Foundations'}</h1>
           <p>{category ? 'Foundations' : 'A Christian resource'}</p>
         </div>
-        <button className="iconbtn spacer" aria-label="Toggle theme" onClick={toggle}>
-          {theme === 'dark' ? '☀' : '☾'}
+        <button className="iconbtn spacer" aria-label={`${themeLabel} — tap to change`} title={themeLabel} onClick={cycle}>
+          {themeIcon}
         </button>
       </div>
     </header>

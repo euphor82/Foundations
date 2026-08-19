@@ -1,8 +1,12 @@
 import type { ReactNode } from 'react'
 import { BooksView } from './books/BooksView'
+import { CharactersView } from './characters/CharactersView'
 import { TimelineView } from './timeline/TimelineView'
+import { ChurchHistoryView } from './church-history/ChurchHistoryView'
+import { ChurchCalendarView } from './church-calendar/ChurchCalendarView'
 import { ReligionsView } from './religions/ReligionsView'
 import { DenominationsView } from './denominations/DenominationsView'
+import { ApologeticsView } from './apologetics/ApologeticsView'
 import { GlossaryView } from './glossary/GlossaryView'
 import { store } from '../lib/store'
 import { TOTAL_BOOKS } from './books/data'
@@ -34,12 +38,36 @@ export const CATEGORIES: Category[] = [
     },
   },
   {
+    id: 'characters',
+    path: '/characters',
+    title: 'Bible Characters',
+    icon: '🧑‍🦱',
+    blurb: 'Profiles of the notable people of the Bible — sort A–Z, by book, or by role.',
+    element: <CharactersView />,
+  },
+  {
     id: 'timeline',
     path: '/timeline',
     title: 'Timeline',
     icon: '🕰️',
     blurb: 'The biblical story by era, from creation to the early Church.',
     element: <TimelineView />,
+  },
+  {
+    id: 'church-history',
+    path: '/church-history',
+    title: 'Church History',
+    icon: '📜',
+    blurb: 'Key eras and moments of the Church, from Pentecost to today.',
+    element: <ChurchHistoryView />,
+  },
+  {
+    id: 'church-calendar',
+    path: '/church-calendar',
+    title: 'Church Calendar',
+    icon: '📅',
+    blurb: 'The seasons and feasts of the Christian year and what they mean.',
+    element: <ChurchCalendarView />,
   },
   {
     id: 'religions',
@@ -56,6 +84,14 @@ export const CATEGORIES: Category[] = [
     icon: '⛪',
     blurb: 'Christian traditions grouped by family — what they share and where they differ.',
     element: <DenominationsView />,
+  },
+  {
+    id: 'apologetics',
+    path: '/apologetics',
+    title: 'Apologetics',
+    icon: '🛡️',
+    blurb: 'Gracious, reasoned answers to common tough questions about the faith.',
+    element: <ApologeticsView />,
   },
   {
     id: 'glossary',
