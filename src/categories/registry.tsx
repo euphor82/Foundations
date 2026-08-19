@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { BooksView } from './books/BooksView'
 import { CharactersView } from './characters/CharactersView'
+import { StoriesView } from './stories/StoriesView'
 import { TimelineView } from './timeline/TimelineView'
 import { ChurchHistoryView } from './church-history/ChurchHistoryView'
 import { ChurchCalendarView } from './church-calendar/ChurchCalendarView'
@@ -10,6 +11,7 @@ import { ApologeticsView } from './apologetics/ApologeticsView'
 import { GlossaryView } from './glossary/GlossaryView'
 import { store } from '../lib/store'
 import { TOTAL_BOOKS } from './books/data'
+import { TOTAL_STORIES } from './stories/data'
 
 export interface Category {
   id: string
@@ -44,6 +46,15 @@ export const CATEGORIES: Category[] = [
     icon: '🧑‍🦱',
     blurb: 'Profiles of the notable people of the Bible — sort A–Z, by book, or by role.',
     element: <CharactersView />,
+  },
+  {
+    id: 'stories',
+    path: '/stories',
+    title: 'Bible Stories',
+    icon: '📕',
+    blurb: 'The best-known stories — what happened, who was there, and why it matters.',
+    element: <StoriesView />,
+    badge: () => `${TOTAL_STORIES} stories`,
   },
   {
     id: 'timeline',

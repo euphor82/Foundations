@@ -3,6 +3,7 @@
  * target view supports it, or to the section otherwise. */
 import { ALL_BOOKS } from '../categories/books/data'
 import { ALL_CHARACTERS } from '../categories/characters/data'
+import { ALL_STORIES } from '../categories/stories/data'
 import { TERMS } from '../categories/glossary/data'
 import { RELIGIONS } from '../categories/religions/data'
 import { DENOMINATIONS } from '../categories/denominations/data'
@@ -30,6 +31,11 @@ const INDEX: SearchResult[] = [
   ...ALL_CHARACTERS.map((c) => ({
     section: 'Bible Characters', label: c.name, sub: c.role,
     to: `/characters?open=${enc(c.name)}`, hay: lc(c.name, (c.aka || []).join(' '), c.role, c.summary, c.whyMatter),
+  })),
+  ...ALL_STORIES.map((s) => ({
+    section: 'Bible Stories', label: s.title, sub: s.kind,
+    to: `/stories?open=${enc(s.title)}`,
+    hay: lc(s.title, s.reference, s.summary, s.significance, s.takeaway, s.characters.join(' '), s.themes.join(' ')),
   })),
   ...TERMS.map((t) => ({
     section: 'Glossary', label: t.term, sub: t.short,
@@ -68,7 +74,7 @@ const INDEX: SearchResult[] = [
 
 /** Section display order for grouping results. */
 export const SECTION_ORDER = [
-  'Book by Book', 'Bible Characters', 'Timeline', 'Church History',
+  'Book by Book', 'Bible Characters', 'Bible Stories', 'Timeline', 'Church History',
   'Church Calendar', 'Religions', 'Denominations', 'Apologetics', 'Glossary',
 ]
 

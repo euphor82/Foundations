@@ -5,6 +5,7 @@ import { Collapsible } from '../../components/Collapsible'
 import { matches } from '../../lib/text'
 import { eraName, hasEra } from '../timeline/data'
 import { ALL_BOOKS } from '../books/data'
+import { storiesForCharacter } from '../stories/data'
 import { CATEGORY_ORDER, type BibleCharacter } from './types'
 import { ALL_CHARACTERS, characterExists } from './data'
 import './characters.css'
@@ -176,6 +177,20 @@ function CharDetail({ c, onOpen }: { c: BibleCharacter; onOpen: (n: string) => v
           </div>
         </div>
       ) : null}
+
+      {(() => {
+        const stories = storiesForCharacter(c.name)
+        return stories.length ? (
+          <div className="seealso">
+            <p className="k">In these stories</p>
+            <div className="row">
+              {stories.map((s) => (
+                <Link key={s.title} className="pill" to={`/stories?open=${encodeURIComponent(s.title)}`}>{s.title} →</Link>
+              ))}
+            </div>
+          </div>
+        ) : null
+      })()}
     </div>
   )
 }

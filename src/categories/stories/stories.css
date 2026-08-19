@@ -1,0 +1,77 @@
+/* Bible Stories — kind badges, theme tags, and the significance / takeaway / misread blocks. */
+
+.story-count { font-size: 12px; color: var(--muted); margin: 8px 2px 4px; }
+
+/* theme filter dropdown, styled to sit in the chips row */
+.theme-select {
+  padding: 6px 13px; font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: 99px; background: var(--card);
+  white-space: nowrap; -webkit-appearance: none; appearance: none; cursor: pointer;
+}
+.theme-select:focus { border-color: var(--gilt); outline: none; }
+
+/* kind badge shown in the collapsible meta slot */
+.kind {
+  font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 99px; white-space: nowrap;
+  border: 1px solid var(--line);
+}
+.kind.event { background: color-mix(in srgb, var(--gold) 12%, transparent); color: var(--gold); }
+.kind.miracle { background: color-mix(in srgb, #3E7C8C 16%, transparent); color: #2f6675; border-color: color-mix(in srgb, #3E7C8C 30%, var(--line)); }
+.kind.parable { background: color-mix(in srgb, #8C5A9E 16%, transparent); color: #7a4b8c; border-color: color-mix(in srgb, #8C5A9E 30%, var(--line)); }
+html.dark .kind.miracle { color: #7db8c8; }
+html.dark .kind.parable { color: #c49bd6; }
+
+/* reference line under the title — links to the ESV reader */
+.story-ref { font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: .3px; margin: 0 0 8px; }
+.ref-link { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gilt); }
+.ref-link:hover { border-bottom-style: solid; }
+.ref-ext { font-size: 10px; font-weight: 700; }
+.ref-sep { color: var(--muted); }
+.ref-esv { color: var(--muted); font-weight: 600; font-size: 10.5px; letter-spacing: .4px; }
+
+/* the two-angle significance blocks */
+.sig {
+  border-radius: 10px; padding: 10px 12px; margin: 4px 0 0;
+  border: 1px solid var(--line); background: var(--card);
+}
+.sig + .sig { margin-top: 8px; }
+.sig .sig-k {
+  font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; margin: 0 0 3px;
+}
+.sig.bigstory { border-left: 3px solid var(--gold); }
+.sig.bigstory .sig-k { color: var(--gold); }
+.sig.takeaway { border-left: 3px solid var(--gilt); }
+.sig.takeaway .sig-k { color: var(--gilt); }
+.sig p.v { font-size: 14px; color: var(--ink-soft); margin: 0; }
+
+/* misread note */
+.misread {
+  border-radius: 10px; padding: 10px 12px; margin: 8px 0 0;
+  background: color-mix(in srgb, var(--danger) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--danger) 26%, var(--line));
+  border-left: 3px solid var(--danger);
+}
+.misread .sig-k { color: var(--danger); font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; margin: 0 0 3px; }
+.misread p.v { font-size: 14px; color: var(--ink-soft); margin: 0; }
+
+/* cross-testament echoes — OT story fulfilled in the NT */
+.echoes {
+  border-radius: 10px; padding: 10px 12px; margin: 8px 0 0;
+  border: 1px solid var(--line); border-left: 3px solid var(--gilt);
+  background: color-mix(in srgb, var(--gold) 6%, transparent);
+}
+.echoes > .sig-k { color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; margin: 0 0 6px; }
+.echo + .echo { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+.echo-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0 0 2px; }
+.echo-link { font-size: 13.5px; font-weight: 700; color: var(--gold); text-decoration: none; }
+.echo-name { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.echo-ref { font-size: 11px; font-weight: 700; color: var(--gilt); letter-spacing: .3px; }
+
+/* theme tag chips (link to glossary where the term exists) */
+.themes-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 2px; }
+.theme-tag {
+  font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 99px; text-decoration: none;
+  background: color-mix(in srgb, var(--gold) 9%, transparent); border: 1px solid var(--line); color: var(--gold);
+}
+a.theme-tag { border-color: var(--gilt); }

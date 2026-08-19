@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import type { Book } from './types'
 import { eraName, hasEra } from '../timeline/data'
 import { characterExists } from '../characters/data'
+import { storiesForBook } from '../stories/data'
 
 interface Props {
   book: Book
@@ -29,6 +30,7 @@ function PersonName({ name }: { name: string }) {
 }
 
 export function BookDetail({ book, isRead, onToggleRead }: Props) {
+  const stories = storiesForBook(book.name)
   return (
     <div>
       <div className="tags">
@@ -75,6 +77,17 @@ export function BookDetail({ book, isRead, onToggleRead }: Props) {
           </li>
         ))}
       </ul>
+
+      {stories.length ? (
+        <div className="seealso">
+          <p className="k">Stories in this book</p>
+          <div className="row">
+            {stories.map((s) => (
+              <Link key={s.title} className="pill" to={`/stories?open=${encodeURIComponent(s.title)}`}>{s.title} →</Link>
+            ))}
+          </div>
+        </div>
+      ) : null}
 
       <div style={{ marginTop: 14 }}>
         <button className={`readbtn${isRead ? ' on' : ''}`} onClick={onToggleRead}>
