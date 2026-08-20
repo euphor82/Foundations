@@ -12,13 +12,16 @@
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
     <title>Foundations — A Christian Resource</title>
     <script>
-      // Apply the saved theme (System default) before paint to avoid a flash.
+      // Apply the saved theme + text size before paint to avoid a flash.
       (function () {
         try {
           var m = localStorage.getItem('fdn.theme');
           m = m ? JSON.parse(m) : 'system';
           var dark = m === 'dark' || (m === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
           if (dark) document.documentElement.classList.add('dark');
+          var ts = localStorage.getItem('fdn.textSize');
+          ts = ts ? JSON.parse(ts) : 'm';
+          if (ts && ts !== 'm') document.documentElement.setAttribute('data-textsize', ts);
         } catch (e) {}
       })();
     </script>

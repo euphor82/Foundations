@@ -1,0 +1,42 @@
+.set-group { margin: 18px 0 6px; }
+.set-title { font-size: 10.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold); margin: 0 2px 8px; }
+.set-card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 15px; box-shadow: var(--shadow); }
+
+.set-label { font-size: 14.5px; font-weight: 700; }
+.set-sub { font-size: 12px; color: var(--muted); margin: 2px 0 10px; }
+
+/* segmented control */
+.seg { display: flex; background: var(--paper); border: 1px solid var(--line); border-radius: 11px; overflow: hidden; }
+.seg button { flex: 1; padding: 10px 4px; font-size: 13px; font-weight: 600; color: var(--ink-soft); border-right: 1px solid var(--line); min-height: var(--tap); }
+.seg button:last-child { border-right: none; }
+.seg button.on { background: color-mix(in srgb, var(--gold) 14%, transparent); color: var(--gold); }
+.seg button:active { background: color-mix(in srgb, var(--gold) 8%, transparent); }
+
+.set-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.set-hr { border: none; border-top: 1px solid var(--line); margin: 14px 0; }
+
+.set-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.set-btn {
+  padding: 10px 14px; border-radius: 10px; border: 1px solid var(--gilt); color: var(--gold);
+  background: var(--card); font-weight: 700; font-size: 13px; min-height: var(--tap);
+}
+.set-btn:active { background: color-mix(in srgb, var(--gold) 8%, transparent); }
+.set-btn:disabled { opacity: .45; }
+.set-btn.danger { border-color: color-mix(in srgb, var(--danger) 45%, var(--line)); color: var(--danger); }
+.set-btn.as-label { display: inline-flex; align-items: center; cursor: pointer; }
+
+.set-textarea {
+  width: 100%; min-height: 74px; border: 1px solid var(--line); border-radius: 10px; padding: 10px;
+  font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--paper);
+  color: var(--ink); resize: vertical;
+}
+
+.set-about { font-size: 13px; color: var(--ink-soft); margin: 0 0 10px; line-height: 1.55; }
+.set-about:last-child { margin-bottom: 0; }
+.set-about.muted { color: var(--muted); font-size: 11.5px; }
+
+.set-flash {
+  position: sticky; top: 6px; z-index: 5; background: color-mix(in srgb, var(--gold) 14%, var(--card));
+  border: 1px solid var(--gilt); color: var(--gold); border-radius: 10px; padding: 9px 12px;
+  font-size: 12.5px; font-weight: 600; margin: 4px 0 8px; text-align: center;
+}

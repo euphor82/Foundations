@@ -1,18 +1,47 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { SearchBar } from '../../components/SearchBar'
 import { Collapsible } from '../../components/Collapsible'
 import { matches } from '../../lib/text'
 import { QUESTIONS, APOLOGETICS_INTRO } from './data'
+import {
+  CATECHISM, CATECHISM_INTRO, CATECHISM_TITLE, CATECHISM_ATTRIBUTION, CATECHISM_PARTS,
+} from './catechism'
 
 const TOPICS = ['God', 'The Bible', 'Jesus', 'Suffering & Evil', 'Science & Faith', 'Other Religions', 'Morality', 'The Afterlife']
 const PRESENT = TOPICS.filter((t) => QUESTIONS.some((q) => q.topic === t))
+const PARTS = [1, 2, 3] as const
+
+const esvUrl = (ref: string) => `https://www.esv.org/${ref.trim().replace(/[–—]/g, '-').replace(/\s+/g, '+')}/`
 
 export function ApologeticsView() {
+  const [params] = useSearchParams()
+  const [mode, setMode] = useState<'questions' | 'catechism'>(params.get('tab') === 'catechism' ? 'catechism' : 'questions')
   const [query, setQuery] = useState('')
   const [topic, setTopic] = useState<string>('all')
+  useEffect(() => { if (params.get('tab') === 'catechism') setMode('catechism') }, [params])
 
   const q = query.trim()
+
+  return (
+    <>
+      <div className="chips">
+        <button className={mode === 'questions' ? 'on' : ''} onClick={() => { setMode('questions'); setQuery('') }}>Questions</button>
+        <button className={mode === 'catechism' ? 'on' : ''} onClick={() => { setMode('catechism'); setQuery('') }}>Catechism</button>
+      </div>
+
+      {mode === 'questions' ? (
+        <Questions query={query} setQuery={setQuery} topic={topic} setTopic={setTopic} q={q} />
+      ) : (
+        <Catechism query={query} setQuery={setQuery} q={q} />
+      )}
+    </>
+  )
+}
+
+function Questions({ query, setQuery, topic, setTopic, q }: {
+  query: string; setQuery: (v: string) => void; topic: string; setTopic: (v: string) => void; q: string
+}) {
   const list = QUESTIONS.filter((item) => {
     if (topic !== 'all' && item.topic !== topic) return false
     return matches(q, item.question, item.short, item.answer, item.topic)
@@ -78,6 +107,48 @@ export function ApologeticsView() {
           </div>
         ))
       )}
+    </>
+  )
+}
+
+function Catechism({ query, setQuery, q }: { query: string; setQuery: (v: string) => void; q: string }) {
+  const list = CATECHISM.filter((c) => matches(q, `${c.n}`, c.question, c.answer, c.ref))
+
+  const card = (c: (typeof CATECHISM)[number]) => (
+    <Collapsible key={c.n} title={`${c.n}. ${c.question}`} meta={`Q${c.n}`}>
+      <p className="prose">{c.answer}</p>
+      <div className="lab">Scripture</div>
+      <a className="pill" href={esvUrl(c.ref)} target="_blank" rel="noopener noreferrer">{c.ref} ↗</a>
+    </Collapsible>
+  )
+
+  return (
+    <>
+      <div className="note">
+        {CATECHISM_INTRO}
+        <br />
+        <br />
+        <b>{CATECHISM_TITLE}.</b> 52 questions &amp; answers, tap a reference to read it in the ESV.
+      </div>
+      <SearchBar value={query} onChange={setQuery} placeholder="Search the catechism" />
+      {q ? (
+        list.length ? (
+          <>
+            <div className="tlabel">Search results</div>
+            {list.map(card)}
+          </>
+        ) : (
+          <div className="empty"><div className="big">No matches</div>Try another word.</div>
+        )
+      ) : (
+        PARTS.map((p) => (
+          <div key={p}>
+            <div className="tlabel">{CATECHISM_PARTS[p]}</div>
+            {CATECHISM.filter((c) => c.part === p).map(card)}
+          </div>
+        ))
+      )}
+      <p className="cat-attrib">{CATECHISM_ATTRIBUTION}</p>
     </>
   )
 }

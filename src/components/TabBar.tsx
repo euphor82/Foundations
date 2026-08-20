@@ -1,14 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useTheme } from '../lib/theme'
 import './tabbar.css'
 
 /** Fixed bottom navigation — the app-native way to move around. */
 export function TabBar() {
-  const location = useLocation()
-  const { mode, cycle } = useTheme()
-  const onHome = location.pathname === '/'
-  const themeIcon = mode === 'system' ? '◐' : mode === 'dark' ? '☾' : '☀'
-  const themeLabel = mode === 'system' ? 'System theme' : mode === 'dark' ? 'Dark theme' : 'Light theme'
+  const { pathname } = useLocation()
+  const onHome = pathname === '/'
+  const onSettings = pathname === '/settings'
 
   return (
     <nav className="tabbar" aria-label="Primary">
@@ -21,10 +18,10 @@ export function TabBar() {
           <span className="ti" aria-hidden>⌕</span>
           <span>Search</span>
         </Link>
-        <button className="tab" onClick={cycle} aria-label={`${themeLabel} — tap to change`} title={themeLabel}>
-          <span className="ti" aria-hidden>{themeIcon}</span>
-          <span>Theme</span>
-        </button>
+        <Link className={`tab${onSettings ? ' on' : ''}`} to="/settings" aria-current={onSettings ? 'page' : undefined}>
+          <span className="ti" aria-hidden>⚙</span>
+          <span>Settings</span>
+        </Link>
       </div>
     </nav>
   )

@@ -11,6 +11,7 @@ import { ERAS } from '../categories/timeline/data'
 import { PERIODS } from '../categories/church-history/data'
 import { CALENDAR } from '../categories/church-calendar/data'
 import { QUESTIONS } from '../categories/apologetics/data'
+import { CATECHISM } from '../categories/apologetics/catechism'
 
 export interface SearchResult {
   section: string
@@ -69,6 +70,10 @@ const INDEX: SearchResult[] = [
   ...QUESTIONS.map((qn) => ({
     section: 'Apologetics', label: qn.question, sub: qn.topic,
     to: '/apologetics', hay: lc(qn.question, qn.short, qn.answer, qn.topic),
+  })),
+  ...CATECHISM.map((c) => ({
+    section: 'Apologetics', label: `${c.n}. ${c.question}`, sub: 'Catechism',
+    to: '/apologetics?tab=catechism', hay: lc(c.question, c.answer, c.ref, 'catechism'),
   })),
 ]
 

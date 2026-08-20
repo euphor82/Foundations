@@ -7,7 +7,10 @@ export function Header() {
   const location = useLocation()
   const navigate = useNavigate()
   const category = categoryByPath(location.pathname)
-  const isHome = location.pathname === '/' || !category
+  const isSettings = location.pathname === '/settings'
+  const isHome = location.pathname === '/'
+  const title = isSettings ? 'Settings' : category ? category.title : 'Foundations'
+  const subtitle = isSettings || category ? 'Foundations' : 'A Christian resource'
 
   return (
     <header
@@ -28,12 +31,14 @@ export function Header() {
           >
             {category.icon}
           </span>
+        ) : isSettings ? (
+          <span className="hchip" style={{ background: 'color-mix(in srgb, var(--gold) 16%, var(--card))' }} aria-hidden>⚙</span>
         ) : (
           <Logo />
         )}
         <div>
-          <h1>{category ? category.title : 'Foundations'}</h1>
-          <p>{category ? 'Foundations' : 'A Christian resource'}</p>
+          <h1>{title}</h1>
+          <p>{subtitle}</p>
         </div>
       </div>
     </header>
