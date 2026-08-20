@@ -3,14 +3,24 @@ import { Link, useSearchParams } from 'react-router-dom'
 import { CATEGORIES } from '../categories/registry'
 import { SearchBar } from './SearchBar'
 import { searchAll, SECTION_ORDER } from '../lib/globalSearch'
+import { store } from '../lib/store'
 import './hub.css'
+
+type HomeOrder = 'recommended' | 'az'
 
 export function Hub() {
   const [params] = useSearchParams()
   const [query, setQuery] = useState('')
+  const [order, setOrder] = useState<HomeOrder>(() => store.get<HomeOrder>('homeOrder', 'recommended'))
   const inputRef = useRef<HTMLInputElement>(null)
   const q = query.trim()
   const results = useMemo(() => searchAll(q), [q])
+
+  const cards = useMemo(
+    () => (order === 'az' ? [...CATEGORIES].sort((a, b) => a.title.localeCompare(b.title)) : CATEGORIES),
+    [order],
+  )
+  const changeOrder = (o: HomeOrder) => { setOrder(o); store.set('homeOrder', o) }
 
   // Focus the search when arrived here via the Search tab (adds ?focus=1).
   useEffect(() => {
@@ -51,8 +61,13 @@ export function Hub() {
           <div className="empty"><div className="big">No matches</div>Try another word.</div>
         )
       ) : (
-        <div className="hub">
-          {CATEGORIES.map((c) => (
+        <>
+          <div className="hub-sort" role="group" aria-label="Sort sections">
+            <button className={order === 'recommended' ? 'on' : ''} onClick={() => changeOrder('recommended')}>Recommended</button>
+            <button className={order === 'az' ? 'on' : ''} onClick={() => changeOrder('az')}>A–Z</button>
+          </div>
+          <div className="hub">
+          {cards.map((c) => (
             <Link
               key={c.id}
               className="hcard"
@@ -68,7 +83,8 @@ export function Hub() {
               <p className="hd">{c.badge ? c.badge() : c.tagline}</p>
             </Link>
           ))}
-        </div>
+          </div>
+        </>
       )}
     </>
   )
