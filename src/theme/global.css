@@ -56,8 +56,10 @@ h1, h2, h3, h4 { font-family: var(--serif); }
   border-bottom: 1px solid var(--line);
   padding: calc(env(safe-area-inset-top) + 10px) 16px 10px;
 }
+.header.accented { border-bottom: 2px solid color-mix(in srgb, var(--acc) 55%, var(--line)); }
 .brand { display: flex; align-items: center; gap: 11px; }
 .brand .ic { width: 34px; height: 34px; border-radius: 8px; flex: 0 0 auto; box-shadow: 0 1px 3px rgba(0,0,0,.25); }
+.hchip { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 1; flex: 0 0 auto; }
 .brand h1 { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: .2px; }
 .brand p { margin: 0; font-size: 11.5px; color: var(--muted); letter-spacing: .3px; }
 .iconbtn {
@@ -68,8 +70,8 @@ h1, h2, h3, h4 { font-family: var(--serif); }
 .iconbtn.back { display: none; }
 .iconbtn.spacer { margin-left: auto; }
 
-.main { padding: 6px 16px 64px; }
-.foot { text-align: center; font-size: 11px; color: color-mix(in srgb, var(--muted) 70%, transparent); padding: 22px 0 26px; }
+.main { padding: 6px 16px calc(74px + env(safe-area-inset-bottom)); }
+.foot { text-align: center; font-size: 11px; color: color-mix(in srgb, var(--muted) 70%, transparent); padding: 18px 0 8px; }
 
 /* generic section labels */
 .tlabel { font-size: 13px; font-weight: 700; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; margin: 24px 2px 4px; }

@@ -19,6 +19,10 @@ export interface Category {
   title: string
   icon: string
   blurb: string
+  /** Section accent color — used on hub cards and the section header. */
+  accent: string
+  /** Short one-line descriptor shown on the compact hub card. */
+  tagline: string
   element: ReactNode
   /** Optional label shown on the hub card (e.g. reading progress). */
   badge?: () => string
@@ -33,6 +37,8 @@ export const CATEGORIES: Category[] = [
     title: 'Book by Book',
     icon: '📖',
     blurb: 'A summary of all 66 books — purpose, key people, and how each points to Christ.',
+    accent: '#B5762F',
+    tagline: 'All 66 books',
     element: <BooksView />,
     badge: () => {
       const read = store.get<string[]>('books.read', [])
@@ -45,6 +51,8 @@ export const CATEGORIES: Category[] = [
     title: 'Bible Characters',
     icon: '🧑‍🦱',
     blurb: 'Profiles of the notable people of the Bible — sort A–Z, by book, or by role.',
+    accent: '#8C5A9E',
+    tagline: 'Notable people',
     element: <CharactersView />,
   },
   {
@@ -53,6 +61,8 @@ export const CATEGORIES: Category[] = [
     title: 'Bible Stories',
     icon: '📕',
     blurb: 'The best-known stories — what happened, who was there, and why it matters.',
+    accent: '#C15F3C',
+    tagline: 'Events, miracles, parables',
     element: <StoriesView />,
     badge: () => `${TOTAL_STORIES} stories`,
   },
@@ -62,6 +72,8 @@ export const CATEGORIES: Category[] = [
     title: 'Timeline',
     icon: '🕰️',
     blurb: 'The biblical story by era, from creation to the early Church.',
+    accent: '#3E7C8C',
+    tagline: 'Creation → the Church',
     element: <TimelineView />,
   },
   {
@@ -70,6 +82,8 @@ export const CATEGORIES: Category[] = [
     title: 'Church History',
     icon: '📜',
     blurb: 'Key eras and moments of the Church, from Pentecost to today.',
+    accent: '#7A6BA8',
+    tagline: 'Pentecost → today',
     element: <ChurchHistoryView />,
   },
   {
@@ -78,6 +92,8 @@ export const CATEGORIES: Category[] = [
     title: 'Church Calendar',
     icon: '📅',
     blurb: 'The seasons and feasts of the Christian year and what they mean.',
+    accent: '#4F8A52',
+    tagline: 'Seasons & feasts',
     element: <ChurchCalendarView />,
   },
   {
@@ -86,6 +102,8 @@ export const CATEGORIES: Category[] = [
     title: 'Religions',
     icon: '🌐',
     blurb: 'Major world religions described fairly and compared with Christianity.',
+    accent: '#2F6F86',
+    tagline: 'World faiths compared',
     element: <ReligionsView />,
   },
   {
@@ -94,6 +112,8 @@ export const CATEGORIES: Category[] = [
     title: 'Denominations',
     icon: '⛪',
     blurb: 'Christian traditions grouped by family — what they share and where they differ.',
+    accent: '#A0522D',
+    tagline: 'Christian families',
     element: <DenominationsView />,
   },
   {
@@ -102,6 +122,8 @@ export const CATEGORIES: Category[] = [
     title: 'Apologetics',
     icon: '🛡️',
     blurb: 'Gracious, reasoned answers to common tough questions about the faith.',
+    accent: '#5A6BAE',
+    tagline: 'Tough questions',
     element: <ApologeticsView />,
   },
   {
@@ -110,6 +132,8 @@ export const CATEGORIES: Category[] = [
     title: 'Glossary',
     icon: '📚',
     blurb: 'Plain-language definitions of key Christian and spiritual terms.',
+    accent: '#6E8B3D',
+    tagline: 'Key terms',
     element: <GlossaryView />,
   },
 ]
