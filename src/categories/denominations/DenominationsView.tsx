@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Collapsible } from '../../components/Collapsible'
 import { CompareSelect } from '../../components/CompareSelect'
-import { DENOMINATIONS, DENOM_INTRO, DENOM_COMMON, DENOM_FAMILIES } from './data'
+import { DENOMINATIONS, DENOM_FAMILIES } from './data'
 import type { Denomination } from './types'
 
 const ATTRS = [
@@ -19,13 +19,6 @@ export function DenominationsView() {
 
   return (
     <>
-      <div className="note">
-        {DENOM_INTRO}
-        <br />
-        <br />
-        <b>Shared ground:</b> {DENOM_COMMON}
-      </div>
-
       <div className="chips">
         <button className={!showTable ? 'on' : ''} onClick={() => setShowTable(false)}>Detail</button>
         <button className={showTable ? 'on' : ''} onClick={() => setShowTable(true)}>Compare</button>

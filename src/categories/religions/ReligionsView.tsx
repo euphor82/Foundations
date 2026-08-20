@@ -4,7 +4,7 @@ import { SearchBar } from '../../components/SearchBar'
 import { Collapsible } from '../../components/Collapsible'
 import { CompareSelect } from '../../components/CompareSelect'
 import { matches } from '../../lib/text'
-import { RELIGIONS, RELIGIONS_INTRO, COMPARE_SUBJECTS } from './data'
+import { RELIGIONS, COMPARE_SUBJECTS } from './data'
 import type { Religion } from './types'
 
 const ATTRS = [
@@ -23,8 +23,6 @@ export function ReligionsView() {
 
   return (
     <>
-      <div className="note">{RELIGIONS_INTRO}</div>
-
       <div className="chips">
         <button className={!showTable ? 'on' : ''} onClick={() => setShowTable(false)}>Detail</button>
         <button className={showTable ? 'on' : ''} onClick={() => setShowTable(true)}>Compare</button>
