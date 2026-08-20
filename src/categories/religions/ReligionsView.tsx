@@ -15,6 +15,10 @@ const ATTRS = [
   { key: 'afterlife', label: 'Afterlife' },
 ]
 
+/** True if `term` appears as a whole word (allowing a simple plural) in `hay`. */
+const wordIn = (term: string, hay: string) =>
+  new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:s|es)?\\b`, 'i').test(hay)
+
 export function ReligionsView() {
   const [query, setQuery] = useState('')
   const [showTable, setShowTable] = useState(false)
@@ -42,7 +46,14 @@ export function ReligionsView() {
         <>
           <SearchBar value={query} onChange={setQuery} placeholder="Search a religion or belief" />
           {list.length ? (
-            list.map((r) => (
+            list.map((r) => {
+              const hay = [
+                r.founder, r.origin, r.god, r.texts, r.salvation, r.afterlife,
+                r.differences.join(' '), r.shared,
+                (r.contrasts ?? []).map((c) => `${c.belief} ${c.response} ${c.verse.text}`).join(' '),
+              ].join(' ')
+              const seeAlso = (r.see_also ?? []).filter((t) => wordIn(t, hay))
+              return (
               <Collapsible key={r.name} title={r.name} badge={<span className="tag">{r.adherents}</span>}>
                 <Field k="Founder" v={r.founder} />
                 <Field k="Origin" v={r.origin} />
@@ -68,18 +79,19 @@ export function ReligionsView() {
                     </div>
                   </>
                 ) : null}
-                {r.see_also?.length ? (
+                {seeAlso.length ? (
                   <div className="seealso">
                     <p className="k">See also</p>
                     <div className="row">
-                      {r.see_also.map((t) => (
+                      {seeAlso.map((t) => (
                         <Link key={t} className="pill" to={`/glossary?term=${encodeURIComponent(t)}`}>{t}</Link>
                       ))}
                     </div>
                   </div>
                 ) : null}
               </Collapsible>
-            ))
+              )
+            })
           ) : (
             <div className="empty"><div className="big">No matches</div>Try another search.</div>
           )}

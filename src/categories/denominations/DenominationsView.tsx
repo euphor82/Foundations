@@ -14,6 +14,10 @@ const ATTRS = [
   { key: 'salvation', label: 'Salvation' },
 ]
 
+/** True if `term` appears as a whole word (allowing a simple plural) in `hay`. */
+const wordIn = (term: string, hay: string) =>
+  new RegExp(`\\b${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:s|es)?\\b`, 'i').test(hay)
+
 export function DenominationsView() {
   const [showTable, setShowTable] = useState(false)
 
@@ -38,7 +42,10 @@ export function DenominationsView() {
         DENOM_FAMILIES.map((fam) => (
           <div key={fam}>
             <div className="tlabel">{fam}</div>
-            {DENOMINATIONS.filter((d) => d.family === fam).map((d) => (
+            {DENOMINATIONS.filter((d) => d.family === fam).map((d) => {
+              const hay = [d.origin, d.distinctives, d.authority, d.baptism, d.communion, d.governance, d.leadership, d.salvation].join(' ')
+              const seeAlso = (d.see_also ?? []).filter((t) => wordIn(t, hay))
+              return (
               <Collapsible key={d.name} title={d.name}>
                 <Field k="Origin" v={d.origin} />
                 <Field k="Distinctives" v={d.distinctives} />
@@ -48,18 +55,19 @@ export function DenominationsView() {
                 <Field k="Church governance" v={d.governance} />
                 <Field k="Leadership & structure" v={d.leadership} />
                 <Field k="Salvation" v={d.salvation} />
-                {d.see_also?.length ? (
+                {seeAlso.length ? (
                   <div className="seealso">
                     <p className="k">See also</p>
                     <div className="row">
-                      {d.see_also.map((t) => (
+                      {seeAlso.map((t) => (
                         <Link key={t} className="pill" to={`/glossary?term=${encodeURIComponent(t)}`}>{t}</Link>
                       ))}
                     </div>
                   </div>
                 ) : null}
               </Collapsible>
-            ))}
+              )
+            })}
           </div>
         ))
       )}
