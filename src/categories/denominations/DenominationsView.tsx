@@ -15,7 +15,7 @@ const ATTRS = [
 ]
 
 export function DenominationsView() {
-  const [showTable, setShowTable] = useState(true)
+  const [showTable, setShowTable] = useState(false)
 
   return (
     <>
@@ -27,8 +27,8 @@ export function DenominationsView() {
       </div>
 
       <div className="chips">
-        <button className={showTable ? 'on' : ''} onClick={() => setShowTable(true)}>Compare</button>
         <button className={!showTable ? 'on' : ''} onClick={() => setShowTable(false)}>Detail</button>
+        <button className={showTable ? 'on' : ''} onClick={() => setShowTable(true)}>Compare</button>
       </div>
 
       {showTable ? (

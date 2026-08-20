@@ -17,7 +17,7 @@ const ATTRS = [
 
 export function ReligionsView() {
   const [query, setQuery] = useState('')
-  const [showTable, setShowTable] = useState(true)
+  const [showTable, setShowTable] = useState(false)
 
   const list = RELIGIONS.filter((r) => matches(query, r.name, r.founder, r.origin, r.god, r.differences.join(' ')))
 
@@ -26,8 +26,8 @@ export function ReligionsView() {
       <div className="note">{RELIGIONS_INTRO}</div>
 
       <div className="chips">
-        <button className={showTable ? 'on' : ''} onClick={() => setShowTable(true)}>Compare</button>
         <button className={!showTable ? 'on' : ''} onClick={() => setShowTable(false)}>Detail</button>
+        <button className={showTable ? 'on' : ''} onClick={() => setShowTable(true)}>Compare</button>
       </div>
 
       {showTable ? (
