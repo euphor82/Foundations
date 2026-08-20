@@ -51,10 +51,11 @@ h1, h2, h3, h4 { font-family: var(--serif); }
 /* header */
 .header {
   position: sticky; top: 0; z-index: 20;
-  background: color-mix(in srgb, var(--paper) 94%, transparent);
-  backdrop-filter: saturate(1.4) blur(10px);
+  /* Solid (not frosted): a backdrop-filter here promotes the header to its own
+   * layer, which renders the serif title blurry on iOS Safari. */
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
-  padding: calc(env(safe-area-inset-top) + 10px) 16px 10px;
+  padding: calc(env(safe-area-inset-top) + 16px) 16px 11px;
 }
 .header.accented { border-bottom: 2px solid color-mix(in srgb, var(--acc) 55%, var(--line)); }
 .brand { display: flex; align-items: center; gap: 11px; }
