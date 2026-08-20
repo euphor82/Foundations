@@ -59,13 +59,13 @@ export function Hub() {
               to={c.path}
               style={{ '--acc': c.accent } as CSSProperties}
             >
-              <span className="chip" style={{ background: `color-mix(in srgb, ${c.accent} 15%, var(--card))` }} aria-hidden>
-                {c.icon}
-              </span>
-              <div className="hcard-txt">
+              <div className="hcard-top">
+                <span className="chip" style={{ background: `color-mix(in srgb, ${c.accent} 15%, var(--card))` }} aria-hidden>
+                  {c.icon}
+                </span>
                 <h3 className="ht">{c.title}</h3>
-                <p className="hd">{c.badge ? c.badge() : c.tagline}</p>
               </div>
+              <p className="hd">{c.badge ? c.badge() : c.tagline}</p>
             </Link>
           ))}
         </div>
