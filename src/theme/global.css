@@ -50,9 +50,10 @@ h1, h2, h3, h4 { font-family: var(--serif); }
 
 /* header */
 .header {
-  position: sticky; top: 0; z-index: 20;
-  /* Solid (not frosted): a backdrop-filter here promotes the header to its own
-   * layer, which renders the serif title blurry on iOS Safari. */
+  /* Deliberately NOT sticky and with no backdrop-filter: either one promotes
+   * the header to its own GPU layer on iOS Safari, which renders the serif
+   * title blurry (the SVG icon beside it stays sharp). A plain, static header
+   * keeps the title crisp. The bottom tab bar remains fixed for navigation. */
   background: var(--paper);
   border-bottom: 1px solid var(--line);
   padding: calc(env(safe-area-inset-top) + 16px) 16px 11px;
