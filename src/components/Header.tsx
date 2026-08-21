@@ -8,6 +8,7 @@ const APP_PAGES: Record<string, { title: string; icon: string }> = {
   '/settings': { title: 'Settings', icon: '⚙' },
   '/search': { title: 'Search', icon: '⌕' },
   '/discover': { title: 'Discover', icon: '✨' },
+  '/quiz': { title: 'Quiz', icon: '🎯' },
 }
 
 export function Header() {

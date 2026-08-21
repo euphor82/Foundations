@@ -21,6 +21,10 @@ export function TabBar() {
           <span className="ti" aria-hidden>✨</span>
           <span>Discover</span>
         </Link>
+        <Link className={`tab${on('/quiz')}`} to="/quiz" aria-current={pathname === '/quiz' ? 'page' : undefined}>
+          <span className="ti" aria-hidden>🎯</span>
+          <span>Quiz</span>
+        </Link>
       </div>
     </nav>
   )

@@ -4,6 +4,7 @@ import { VERSES, pickOfDay, pickRandom } from '../lib/discover'
 import {
   PARTS, todayKey, keyOf, partsDone, togglePart, markPart, completedDates, streakStats, type Part,
 } from '../lib/streak'
+import { recordReviewed } from '../lib/reviewed'
 import { ALL_CHARACTERS } from '../categories/characters/data'
 import { ALL_STORIES } from '../categories/stories/data'
 import { TERMS } from '../categories/glossary/data'
@@ -34,9 +35,17 @@ export function DiscoverView() {
   const completed = useMemo(() => completedDates(), [done])
   const stats = useMemo(() => streakStats(), [done])
 
+  // Log the specific item behind a part, so the review quiz can use it.
+  const record = (p: Part) => {
+    if (p === 'verse') recordReviewed('verses', daily.verse.ref)
+    else if (p === 'catechism') recordReviewed('catechism', daily.cat.n)
+    else if (p === 'character') recordReviewed('characters', daily.character.name)
+    else if (p === 'story') recordReviewed('stories', daily.story.title)
+    else if (p === 'term') recordReviewed('terms', daily.term.term)
+  }
   const isDone = (p: Part) => done.includes(p)
-  const toggle = (p: Part) => setDone(togglePart(key, p))
-  const mark = (p: Part) => setDone(markPart(key, p))
+  const toggle = (p: Part) => { const next = togglePart(key, p); if (next.includes(p)) record(p); setDone(next) }
+  const mark = (p: Part) => { record(p); setDone(markPart(key, p)) }
   const allDone = PARTS.every((p) => done.includes(p))
 
   const Check = ({ part }: { part: Part }) => (
