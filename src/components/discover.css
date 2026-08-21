@@ -5,6 +5,23 @@
   background: color-mix(in srgb, var(--gold) 14%, transparent);
   border: 1px solid var(--gilt); border-radius: 12px; padding: 11px 14px;
   font-weight: 700; font-size: 14px; color: var(--gold);
+  animation: banner-pop .38s cubic-bezier(.2, .8, .3, 1.2) both;
+}
+@keyframes banner-pop { 0% { transform: scale(.92); opacity: 0; } 60% { transform: scale(1.03); } 100% { transform: scale(1); opacity: 1; } }
+
+/* completion confetti */
+.confetti { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+.confetti span {
+  position: absolute; top: -14px; border-radius: 2px;
+  animation-name: confetti-fall; animation-timing-function: ease-in; animation-fill-mode: forwards;
+}
+@keyframes confetti-fall {
+  0% { transform: translate3d(0, -14px, 0) rotate(0); opacity: 1; }
+  100% { transform: translate3d(var(--drift), 105vh, 0) rotate(720deg); opacity: .85; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .confetti { display: none; }
+  .dv-banner { animation: none; }
 }
 .dv-progress { margin: 8px 2px 2px; font-size: 12px; font-weight: 600; color: var(--muted); }
 

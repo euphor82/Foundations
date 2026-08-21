@@ -13,7 +13,34 @@ import { CATECHISM } from '../categories/apologetics/catechism'
 import './discover.css'
 
 const enc = encodeURIComponent
+const CONFETTI_COLORS = ['#A98A38', '#C15F3C', '#8C5A9E', '#3E7C8C', '#4F8A52', '#B5762F']
 const WEEKDAYS = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+
+/** A short, self-contained confetti burst (no external library). */
+function Confetti() {
+  const pieces = useMemo(
+    () => Array.from({ length: 42 }, (_, i) => ({
+      left: Math.random() * 100,
+      delay: Math.random() * 0.18,
+      dur: 1.2 + Math.random() * 0.7,
+      drift: (Math.random() * 2 - 1) * 44,
+      color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+      w: 6 + Math.random() * 5,
+      h: 9 + Math.random() * 7,
+    })),
+    [],
+  )
+  return (
+    <div className="confetti" aria-hidden>
+      {pieces.map((p, i) => (
+        <span key={i} style={{
+          left: `${p.left}%`, width: p.w, height: p.h, background: p.color,
+          animationDelay: `${p.delay}s`, animationDuration: `${p.dur}s`, '--drift': `${p.drift}px`,
+        } as CSSProperties} />
+      ))}
+    </div>
+  )
+}
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 export function DiscoverView() {
@@ -21,6 +48,7 @@ export function DiscoverView() {
   const key = todayKey()
   const [done, setDone] = useState<Part[]>(() => partsDone(key))
   const [catOpen, setCatOpen] = useState(false)
+  const [celebrate, setCelebrate] = useState(false)
   const now = new Date()
   const [view, setView] = useState({ y: now.getFullYear(), m: now.getMonth() })
 
@@ -44,9 +72,22 @@ export function DiscoverView() {
     else if (p === 'term') recordReviewed('terms', daily.term.term)
   }
   const isDone = (p: Part) => done.includes(p)
-  const toggle = (p: Part) => { const next = togglePart(key, p); if (next.includes(p)) record(p); setDone(next) }
-  const mark = (p: Part) => { record(p); setDone(markPart(key, p)) }
-  const allDone = PARTS.every((p) => done.includes(p))
+  const isComplete = (arr: Part[]) => PARTS.every((x) => arr.includes(x))
+
+  const fireCelebration = () => {
+    try { navigator.vibrate?.(60) } catch { /* ignore */ }
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
+    setCelebrate(true)
+    window.setTimeout(() => setCelebrate(false), 2100)
+  }
+  const apply = (next: Part[], p: Part, added: boolean) => {
+    if (added) record(p)
+    if (!isComplete(done) && isComplete(next)) fireCelebration()
+    setDone(next)
+  }
+  const toggle = (p: Part) => { const next = togglePart(key, p); apply(next, p, next.includes(p)) }
+  const mark = (p: Part) => { apply(markPart(key, p), p, true) }
+  const allDone = isComplete(done)
 
   const Check = ({ part }: { part: Part }) => (
     <button
@@ -77,6 +118,7 @@ export function DiscoverView() {
 
   return (
     <>
+      {celebrate ? <Confetti /> : null}
       {allDone ? (
         <div className="dv-banner">✓ Today complete{stats.current > 1 ? ` — ${stats.current}-day streak 🔥` : '!'}</div>
       ) : (
