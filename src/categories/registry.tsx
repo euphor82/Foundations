@@ -13,6 +13,11 @@ import { store } from '../lib/store'
 import { TOTAL_BOOKS } from './books/data'
 import { TOTAL_STORIES } from './stories/data'
 
+export type HomeGroup = 'Scripture' | 'Through Time' | 'Faith & Belief' | 'Reference'
+
+/** Order the home groups appear in. */
+export const HOME_GROUPS: HomeGroup[] = ['Scripture', 'Through Time', 'Faith & Belief', 'Reference']
+
 export interface Category {
   id: string
   path: string
@@ -23,6 +28,8 @@ export interface Category {
   accent: string
   /** Short one-line descriptor shown on the compact hub card. */
   tagline: string
+  /** Home-screen grouping. */
+  group: HomeGroup
   element: ReactNode
   /** Optional label shown on the hub card (e.g. reading progress). */
   badge?: () => string
@@ -33,6 +40,7 @@ export interface Category {
 export const CATEGORIES: Category[] = [
   {
     id: 'books',
+    group: 'Scripture',
     path: '/books',
     title: 'Book by Book',
     icon: '📖',
@@ -47,6 +55,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: 'characters',
+    group: 'Scripture',
     path: '/characters',
     title: 'Bible Characters',
     icon: '🧑‍🦱',
@@ -57,6 +66,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: 'stories',
+    group: 'Scripture',
     path: '/stories',
     title: 'Bible Stories',
     icon: '📕',
@@ -68,6 +78,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: 'timeline',
+    group: 'Through Time',
     path: '/timeline',
     title: 'Timeline',
     icon: '🕰️',
@@ -78,6 +89,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: 'church-history',
+    group: 'Through Time',
     path: '/church-history',
     title: 'Church History',
     icon: '📜',
@@ -88,6 +100,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: 'church-calendar',
+    group: 'Through Time',
     path: '/church-calendar',
     title: 'Church Calendar',
     icon: '📅',
@@ -98,6 +111,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: 'religions',
+    group: 'Faith & Belief',
     path: '/religions',
     title: 'Religions',
     icon: '🌐',
@@ -108,6 +122,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: 'denominations',
+    group: 'Faith & Belief',
     path: '/denominations',
     title: 'Denominations',
     icon: '⛪',
@@ -118,6 +133,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: 'apologetics',
+    group: 'Faith & Belief',
     path: '/apologetics',
     title: 'Apologetics',
     icon: '🛡️',
@@ -128,6 +144,7 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: 'glossary',
+    group: 'Reference',
     path: '/glossary',
     title: 'Glossary',
     icon: '📚',
