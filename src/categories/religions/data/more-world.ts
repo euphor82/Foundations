@@ -1,0 +1,187 @@
+import type { Religion } from '../types'
+
+/* Additional world religions. */
+export const MORE_WORLD: Religion[] = [
+  {
+    name: "Bahá'í Faith",
+    group: 'World religions',
+    adherents: '~5–8 million',
+    founder: "Bahá'u'lláh (1817–1892), preceded by the Báb, in 19th-century Persia",
+    origin: "Emerged in 19th-century Persia (Iran) from the movement of the Báb, and was established by Bahá'u'lláh, whom Bahá'ís regard as the latest in a line of divine messengers.",
+    god: 'One transcendent, unknowable God, known only through a succession of divine messengers (Manifestations of God). Emphasizes the essential unity of God, of religion, and of humanity.',
+    texts: "The writings of Bahá'u'lláh (including the Kitáb-i-Aqdas and the Kitáb-i-Íqán) and the Báb, together with the guidance of 'Abdu'l-Bahá.",
+    salvation: "Spiritual growth through knowing and loving God, following the teachings of his Manifestation for the age, and working for the unity and betterment of humanity.",
+    afterlife: 'The soul is immortal and continues to progress toward God after death; heaven and hell are understood as nearness to or distance from God rather than physical places.',
+    differences: [
+      'Bahá\'ís teach progressive revelation — that Krishna, Moses, Buddha, Jesus, Muhammad, and Bahá\'u\'lláh are all messengers of the same God for different ages; Christianity confesses Jesus as the unique and final Word of God, not one prophet among many.',
+      'The Bahá\'í Faith views the world\'s religions as chapters of one unfolding truth; historic Christianity holds that these traditions make genuinely contradictory claims that cannot all be true.',
+      'Bahá\'ís honor Jesus as a Manifestation of God but do not confess him as the crucified and risen Savior whose death atones for sin.',
+    ],
+    shared: "Bahá'ís affirm one God, take moral and spiritual life seriously, revere Jesus as a messenger from God, and share a deep concern for justice, human dignity, and peace.",
+    contrasts: [
+      {
+        belief: 'All the great religions are valid paths to the same God, each a stage in one progressive revelation.',
+        response: 'Jesus did not present himself as one path among many, but as the only way to the Father. The claim is exclusive by design — a fork in the road, not a chapter in a shared book.',
+        verse: { ref: 'John 14:6', text: 'Jesus said to him, “I am the way, and the truth, and the life. No one comes to the Father except through me.”' },
+      },
+      {
+        belief: "Bahá'u'lláh is a further messenger from God, bringing revelation for the present age beyond that of Christ.",
+        response: 'God has spoken finally and fully in his Son. A later messenger with a further word is precisely what Scripture tells us not to expect.',
+        verse: { ref: 'Hebrews 1:1-2', text: 'Long ago, at many times and in many ways, God spoke to our fathers by the prophets, but in these last days he has spoken to us by his Son.' },
+      },
+    ],
+    see_also: ['Gospel'],
+  },
+  {
+    name: 'Taoism (Daoism)',
+    group: 'World religions',
+    adherents: '~tens of millions (hard to count; blended with folk religion)',
+    founder: 'Traditionally attributed to Laozi (6th century BC); a figure whose historicity is debated',
+    origin: 'Arose in ancient China, drawing on the Tao Te Ching attributed to Laozi and the writings of Zhuangzi; developed both as a philosophy and, later, as an organized religion often woven together with Chinese folk practice.',
+    god: 'Centers not on a personal Creator but on the Tao (“the Way”) — the impersonal, ineffable source and pattern of all that is. Popular Taoism also venerates many gods, immortals, and ancestral spirits.',
+    texts: 'The Tao Te Ching and the Zhuangzi, along with a large later canon of scriptures (the Daozang).',
+    salvation: 'Living in harmony with the Tao through wu wei (effortless action), simplicity, and balance; in religious Taoism, also the pursuit of longevity, health, and spiritual immortality.',
+    afterlife: 'Views vary widely — from a naturalistic return to the Tao, to elaborate hierarchies of spirits, immortals, and afterworlds in popular and religious Taoism.',
+    differences: [
+      'Taoism looks to an impersonal Way to be aligned with, not a personal God to be known and loved.',
+      'Its ideal is harmony with the natural flow of things; Christianity speaks of a fallen world that must be redeemed, not simply harmonized with.',
+      'Salvation in Christianity is a gift of grace through Christ; Taoism seeks balance, longevity, or absorption into the Tao through practice and cultivation.',
+    ],
+    shared: 'Taoism prizes humility, simplicity, contentment, and restraint over pride and grasping — echoing much that Scripture commends — and rightly senses that reality runs by a deeper order than human striving.',
+    contrasts: [
+      {
+        belief: 'The ultimate reality, the Tao, is an impersonal Way — nameless and without will or character.',
+        response: 'The source of all things is not a nameless force but a personal God who speaks, acts, and can be known. He made the world by his word and calls his people by name.',
+        verse: { ref: 'Genesis 1:1', text: 'In the beginning, God created the heavens and the earth.' },
+      },
+      {
+        belief: 'Peace comes from aligning oneself with the natural flow of the Tao.',
+        response: 'True peace is not harmony with an impersonal current but reconciliation with the God we have wronged — a gift secured by Christ, not achieved by effort.',
+        verse: { ref: 'Romans 5:1', text: 'Therefore, since we have been justified by faith, we have peace with God through our Lord Jesus Christ.' },
+      },
+    ],
+  },
+  {
+    name: 'Confucianism',
+    group: 'World religions',
+    adherents: '~hundreds of millions influenced (as an ethical tradition, not a membership faith)',
+    founder: 'Confucius (Kongzi, 551–479 BC)',
+    origin: 'Arose in ancient China from the teaching of Confucius and was developed by later thinkers such as Mencius. It is as much an ethical and philosophical system as a religion, and is typically practiced alongside Buddhism, Taoism, or folk religion rather than in place of them.',
+    god: 'Not primarily a theology at all: Confucianism concerns itself chiefly with ethics, character, and society. It speaks of Heaven (Tian) as a moral order or authority, and reveres ancestors, but does not center on a personal Creator God to be worshiped.',
+    texts: 'The Analects, the Five Classics, and the works of later Confucian thinkers such as Mencius.',
+    salvation: 'Not framed as salvation but as cultivation: becoming a person of virtue (ren, righteousness, propriety) through learning, self-discipline, and right relationships, so as to bring harmony to family and society.',
+    afterlife: 'Little developed; the focus is on this life, on honoring ancestors, and on one\'s enduring moral legacy rather than on a personal eternity.',
+    differences: [
+      'Confucianism aims at moral and social harmony through self-cultivation; Christianity teaches that the human heart is fallen and cannot perfect itself, but needs to be redeemed.',
+      'It is largely silent about a personal God and salvation, concerns at the center of the Christian faith.',
+      'Christian hope rests on grace and the resurrection to eternal life; Confucian hope rests on virtue, an ordered society, and an honored legacy in this world.',
+    ],
+    shared: 'Confucianism\'s high regard for virtue, honesty, respect for parents, faithfulness in relationships, and the common good resonates deeply with biblical wisdom and the moral law written on the heart.',
+    contrasts: [
+      {
+        belief: 'People become good by cultivating virtue and observing right relationships.',
+        response: 'Self-cultivation cannot cure a heart bent toward wrong. Scripture is honest that our deepest problem is not lack of training but a corrupt heart that only God can renew.',
+        verse: { ref: 'Jeremiah 17:9', text: 'The heart is deceitful above all things, and desperately sick; who can understand it?' },
+      },
+      {
+        belief: 'The great questions are ethical and social; the question of a personal God can be set aside.',
+        response: 'The moral order Confucius honored points beyond itself to its Author. To pursue goodness while bypassing God is to seek the gift while ignoring the Giver.',
+        verse: { ref: 'Ecclesiastes 12:13', text: 'The end of the matter; all has been heard. Fear God and keep his commandments, for this is the whole duty of man.' },
+      },
+    ],
+  },
+  {
+    name: 'Shinto',
+    group: 'World religions',
+    adherents: '~tens of millions (largely in Japan; often practiced alongside Buddhism)',
+    founder: 'No founder; an indigenous tradition that developed over centuries',
+    origin: "The native religion of Japan, arising from ancient Japanese reverence for the kami and closely bound up with Japanese identity, land, and custom. Its name means “the way of the kami.”",
+    god: 'Not monotheistic: Shinto reveres innumerable kami — sacred spirits or powers present in nature, in remarkable places and things, and in ancestors. The kami are honored rather than understood as one transcendent Creator.',
+    texts: 'The ancient chronicles the Kojiki and the Nihon Shoki, which record myths of the kami and the origins of Japan; Shinto is carried more by ritual and shrine practice than by a single scripture.',
+    salvation: 'Not framed as salvation from sin, but as maintaining purity and right relationship with the kami through ritual cleansing, festivals, offerings, and shrine visits; blessing, harmony, and protection in this life.',
+    afterlife: 'Not strongly developed; Shinto focuses on this world and on ritual purity, and in Japan matters of death are often handled through Buddhist rites.',
+    differences: [
+      'Shinto reveres countless kami in nature and ancestry; Christianity worships one Creator who is distinct from the world he made.',
+      'Its central concern is ritual purity and harmony with the kami, not deliverance from sin and reconciliation with God.',
+      'Shinto is bound tightly to Japanese identity and land; the Christian gospel is for all peoples and nations.',
+    ],
+    shared: 'Shinto\'s sense of the sacred, its gratitude, reverence, and instinct that the world is charged with a holiness beyond the merely material all reflect a genuine awareness that life is more than physical.',
+    contrasts: [
+      {
+        belief: 'The sacred is dispersed among countless kami present in nature and ancestors.',
+        response: 'The living God is not one holy power among many but the Maker of heaven and earth, who alone is to be worshiped. Creation is sacred as his handiwork, not as a host of gods.',
+        verse: { ref: 'Exodus 20:3', text: 'You shall have no other gods before me.' },
+      },
+      {
+        belief: 'What we most need is ritual purity — cleansing from defilement before the kami.',
+        response: 'The impurity Scripture is most concerned with is moral, and no washing of hands or place can remove it. Only the blood of Christ cleanses the conscience before God.',
+        verse: { ref: '1 John 1:7', text: 'The blood of Jesus his Son cleanses us from all sin.' },
+      },
+    ],
+  },
+  {
+    name: 'Jainism',
+    group: 'World religions',
+    adherents: '~4–5 million (mostly in India)',
+    founder: 'No single founder; shaped for this age by Mahavira (traditionally 6th–5th century BC), the last of 24 Tirthankaras',
+    origin: 'An ancient Indian religion, given its enduring form by Mahavira, teaching liberation of the soul through radical non-violence, self-discipline, and detachment.',
+    god: 'Non-theistic regarding a creator: Jainism denies a Creator God who made or governs the universe. It reveres the Tirthankaras — liberated souls who have shown the way — and holds that every living being has an eternal soul (jiva).',
+    texts: 'The Agamas and other scriptures preserved in the Jain traditions (Digambara and Svetambara).',
+    salvation: 'Liberation (moksha) of the soul from the cycle of rebirth by shedding karma through ahimsa (non-violence), truthfulness, non-attachment, and rigorous asceticism — achieved by one\'s own disciplined effort.',
+    afterlife: 'Rebirth governed by karma, continuing until the soul is fully purified and liberated, ascending to a state of perfect, omniscient bliss free from the body.',
+    differences: [
+      'Jainism denies a Creator God; Christianity confesses that one God made and sustains all things.',
+      'It teaches that liberation is won entirely by one\'s own ascetic effort and the shedding of karma; Christianity teaches that we cannot save ourselves and are rescued by grace.',
+      'Jainism looks to escape the cycle of rebirth into an impersonal, solitary perfection; Christian hope is bodily resurrection and eternal communion with God and his people.',
+    ],
+    shared: 'Jainism\'s earnest reverence for life, its commitment to non-violence and honesty, and its sober recognition that selfish desire enslaves the soul all point to real moral truth.',
+    contrasts: [
+      {
+        belief: 'There is no Creator God; the universe is eternal and uncreated.',
+        response: 'The world did not make itself and does not explain itself. It was created and is upheld by the God in whom all things hold together.',
+        verse: { ref: 'Colossians 1:16-17', text: 'For by him all things were created, in heaven and on earth… And he is before all things, and in him all things hold together.' },
+      },
+      {
+        belief: 'The soul frees itself from karma and rebirth by its own strict discipline and non-violence.',
+        response: 'No weight of discipline can shed the guilt of sin. Salvation is God\'s gift in Christ, received by grace — not a summit reached by our own effort.',
+        verse: { ref: 'Ephesians 2:8-9', text: 'For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works, so that no one may boast.' },
+      },
+      {
+        belief: 'Each soul passes through countless rebirths until it is fully purified.',
+        response: 'We live once, then face judgment — not an endless chain of lives. The remedy is not more lifetimes to purify ourselves, but the mercy of God offered now.',
+        verse: { ref: 'Hebrews 9:27', text: 'It is appointed for man to die once, and after that comes judgment.' },
+      },
+    ],
+    see_also: ['Grace', 'Resurrection'],
+  },
+  {
+    name: 'Zoroastrianism',
+    group: 'World religions',
+    adherents: '~100,000–200,000 (small today, but historically influential)',
+    founder: 'Zoroaster (Zarathustra), an ancient Persian prophet (dated variously, roughly 1500–600 BC)',
+    origin: 'One of the world\'s oldest revealed religions, founded by the prophet Zoroaster in ancient Persia. It shaped the Persian Empire and forms part of the backdrop to the Jewish exile in Babylon and Persia; the Magi who sought the Christ child come from this Persian religious world.',
+    god: 'Worships Ahura Mazda, the wise Lord and good Creator. Its outlook is famously dualistic: the good God is opposed by a hostile evil power (Angra Mainyu / Ahriman), and history is the arena of their cosmic struggle, in which humans must choose the side of good.',
+    texts: 'The Avesta, including the Gathas — hymns attributed to Zoroaster himself.',
+    salvation: 'Aligning oneself with Ahura Mazda and the good through “good thoughts, good words, and good deeds,” contributing to the eventual triumph of good over evil.',
+    afterlife: 'The soul is judged after death and passes to reward or punishment; Zoroastrianism looks for a final renovation of the world, a resurrection, and the ultimate defeat of evil.',
+    differences: [
+      'Zoroastrianism sets good and evil as two opposing powers locked in cosmic struggle; Christianity confesses one sovereign God over all, with evil a defeated rebel, never his equal.',
+      'It teaches that people advance the victory of good chiefly by their own good thoughts, words, and deeds; Christianity teaches that we are saved by grace, not by tipping a cosmic balance.',
+      'Its hope rests on the final triumph of the good principle; Christian hope rests on the person and finished work of Christ, in whom evil is already conquered.',
+    ],
+    shared: 'Zoroastrianism affirms one wise Creator, a real moral struggle between good and evil, the call to righteous living, and a striking hope in judgment, resurrection, and the final renewal of the world — a hope its Magi carried toward Bethlehem.',
+    contrasts: [
+      {
+        belief: 'Good and evil are two rival powers, roughly matched, whose battle defines all of history.',
+        response: 'There are not two gods locked in struggle. The one God is sovereign over all — light and darkness alike are under his hand, and evil is no rival to him.',
+        verse: { ref: 'Isaiah 45:7', text: 'I form light and create darkness; I make well-being and create calamity; I am the Lord, who does all these things.' },
+      },
+      {
+        belief: 'People help decide the cosmic outcome by choosing good and adding to its store of good thoughts, words, and deeds.',
+        response: 'The decisive victory over evil is not ours to win by good behavior; it was won at the cross, where Christ disarmed the powers and triumphed over them.',
+        verse: { ref: 'Colossians 2:15', text: 'He disarmed the rulers and authorities and put them to open shame, by triumphing over them in him.' },
+      },
+    ],
+    see_also: ['Resurrection', 'Grace'],
+  },
+]

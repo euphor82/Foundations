@@ -1,4 +1,9 @@
-import type { Religion } from './types'
+import type { Religion, ReligionGroup } from './types'
+import { MORE_WORLD } from './data/more-world'
+import { MORE_MOVEMENTS } from './data/more-movements'
+
+/** Group order for the detail view. */
+export const RELIGION_GROUPS: ReligionGroup[] = ['World religions', 'Movements & new religions', 'Secular worldviews']
 
 export const RELIGIONS_INTRO =
   'These summaries aim to describe each faith fairly and on its own terms, then note key differences from historic Christianity. They are starting points for understanding and conversation, not exhaustive treatments — adherents within each tradition vary widely.'
@@ -7,6 +12,7 @@ export const RELIGIONS_INTRO =
 export const RELIGIONS: Religion[] = [
   {
     name: 'Judaism',
+    group: 'World religions',
     adherents: '~15 million',
     founder: 'Abraham (patriarch); Moses (lawgiver)',
     origin: "Rooted in God's covenant with Abraham (~2000 BC) and the giving of the Law to Moses; the faith of the Hebrew Scriptures (the Tanakh).",
@@ -46,6 +52,7 @@ export const RELIGIONS: Religion[] = [
   },
   {
     name: 'Islam',
+    group: 'World religions',
     adherents: '~1.9 billion',
     founder: 'Muhammad (7th century AD), regarded as the final prophet',
     origin: "Arose in 7th-century Arabia through Muhammad, whom Muslims believe received the Qur'an from God through the angel Gabriel.",
@@ -90,6 +97,7 @@ export const RELIGIONS: Religion[] = [
   },
   {
     name: 'Buddhism',
+    group: 'World religions',
     adherents: '~500 million',
     founder: 'Siddhartha Gautama, the Buddha (~5th century BC)',
     origin: 'Began in India with the Buddha’s enlightenment and his teaching on the cause of suffering and the path beyond it.',
@@ -124,6 +132,7 @@ export const RELIGIONS: Religion[] = [
   },
   {
     name: 'Hinduism',
+    group: 'World religions',
     adherents: '~1.2 billion',
     founder: 'No single founder; developed over millennia in the Indian subcontinent',
     origin: 'The world’s oldest major religious tradition, growing from ancient Vedic religion and the diverse cultures of India rather than from one moment or teacher.',
@@ -158,6 +167,7 @@ export const RELIGIONS: Religion[] = [
   },
   {
     name: 'Sikhism',
+    group: 'World religions',
     adherents: '~25 million',
     founder: 'Guru Nanak (1469–1539) and nine successor Gurus',
     origin: 'Arose in the Punjab region of South Asia in the 15th–17th centuries through Guru Nanak and the Gurus who followed him.',
@@ -192,6 +202,7 @@ export const RELIGIONS: Religion[] = [
   },
   {
     name: 'Mormonism (LDS)',
+    group: 'Movements & new religions',
     adherents: '~17 million',
     founder: 'Joseph Smith (1830, United States)',
     origin: 'Founded by Joseph Smith, who taught that he received new revelation restoring the true church; centered today in The Church of Jesus Christ of Latter-day Saints.',
@@ -241,6 +252,7 @@ export const RELIGIONS: Religion[] = [
   },
   {
     name: "Jehovah's Witnesses",
+    group: 'Movements & new religions',
     adherents: '~8.7 million',
     founder: 'Charles Taze Russell (late 1800s, United States)',
     origin: 'Grew out of the 19th-century Bible Student movement led by Charles Taze Russell; organized as the Watch Tower Society.',
@@ -285,6 +297,7 @@ export const RELIGIONS: Religion[] = [
   },
   {
     name: 'Atheism / Secular Humanism',
+    group: 'Secular worldviews',
     adherents: 'Hundreds of millions (varies by definition)',
     founder: 'No founder; a worldview rather than a religion',
     origin: 'A modern, non-religious outlook — strengthened by the Enlightenment and modern science — that either denies or withholds belief in God.',
@@ -322,6 +335,8 @@ export const RELIGIONS: Religion[] = [
     ],
     see_also: ['Providence', 'Righteousness'],
   },
+  ...MORE_WORLD,
+  ...MORE_MOVEMENTS,
 ]
 
 /* Christianity as a baseline for the compare chart (not shown in the detail

@@ -5,8 +5,12 @@ export interface ScriptureContrast {
   response: string
   verse: { ref: string; text: string }
 }
+export type ReligionGroup = 'World religions' | 'Movements & new religions' | 'Secular worldviews'
+
 export interface Religion {
   name: string
+  /** Section grouping for the detail view. */
+  group?: ReligionGroup
   adherents: string
   founder: string
   origin: string

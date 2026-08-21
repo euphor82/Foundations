@@ -4,7 +4,7 @@ import { SearchBar } from '../../components/SearchBar'
 import { Collapsible } from '../../components/Collapsible'
 import { CompareSelect } from '../../components/CompareSelect'
 import { matches } from '../../lib/text'
-import { RELIGIONS, COMPARE_SUBJECTS } from './data'
+import { RELIGIONS, COMPARE_SUBJECTS, RELIGION_GROUPS } from './data'
 import type { Religion } from './types'
 
 const ATTRS = [
@@ -23,7 +23,55 @@ export function ReligionsView() {
   const [query, setQuery] = useState('')
   const [showTable, setShowTable] = useState(false)
 
+  const q = query.trim()
   const list = RELIGIONS.filter((r) => matches(query, r.name, r.founder, r.origin, r.god, r.differences.join(' ')))
+
+  const card = (r: Religion) => {
+    const hay = [
+      r.founder, r.origin, r.god, r.texts, r.salvation, r.afterlife,
+      r.differences.join(' '), r.shared,
+      (r.contrasts ?? []).map((c) => `${c.belief} ${c.response} ${c.verse.text}`).join(' '),
+    ].join(' ')
+    const seeAlso = (r.see_also ?? []).filter((t) => wordIn(t, hay))
+    return (
+      <Collapsible key={r.name} title={r.name} badge={<span className="tag">{r.adherents}</span>}>
+        <Field k="Founder" v={r.founder} />
+        <Field k="Origin" v={r.origin} />
+        <Field k="View of God" v={r.god} />
+        <Field k="Sacred texts" v={r.texts} />
+        <Field k="Salvation / goal" v={r.salvation} />
+        <Field k="Afterlife" v={r.afterlife} />
+        <div className="lab">Key differences from Christianity</div>
+        <ul className="bullets">{r.differences.map((d, i) => <li key={i}>{d}</li>)}</ul>
+        <div className="lab">Common ground</div>
+        <p className="prose">{r.shared}</p>
+        {r.contrasts?.length ? (
+          <>
+            <div className="lab">Beliefs &amp; Scripture</div>
+            <div className="contrasts">
+              {r.contrasts.map((c, i) => (
+                <div className="contrast" key={i}>
+                  <p className="c-line"><span className="c-tag teach">They teach</span> {c.belief}</p>
+                  <div className="verse"><span className="q">“{c.verse.text}”</span><span className="ref">{c.verse.ref}</span></div>
+                  <p className="c-line"><span className="c-tag answer">Scripture</span> {c.response}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        ) : null}
+        {seeAlso.length ? (
+          <div className="seealso">
+            <p className="k">See also</p>
+            <div className="row">
+              {seeAlso.map((t) => (
+                <Link key={t} className="pill" to={`/glossary?term=${encodeURIComponent(t)}`}>{t}</Link>
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </Collapsible>
+    )
+  }
 
   return (
     <>
@@ -45,55 +93,20 @@ export function ReligionsView() {
       ) : (
         <>
           <SearchBar value={query} onChange={setQuery} placeholder="Search a religion or belief" />
-          {list.length ? (
-            list.map((r) => {
-              const hay = [
-                r.founder, r.origin, r.god, r.texts, r.salvation, r.afterlife,
-                r.differences.join(' '), r.shared,
-                (r.contrasts ?? []).map((c) => `${c.belief} ${c.response} ${c.verse.text}`).join(' '),
-              ].join(' ')
-              const seeAlso = (r.see_also ?? []).filter((t) => wordIn(t, hay))
-              return (
-              <Collapsible key={r.name} title={r.name} badge={<span className="tag">{r.adherents}</span>}>
-                <Field k="Founder" v={r.founder} />
-                <Field k="Origin" v={r.origin} />
-                <Field k="View of God" v={r.god} />
-                <Field k="Sacred texts" v={r.texts} />
-                <Field k="Salvation / goal" v={r.salvation} />
-                <Field k="Afterlife" v={r.afterlife} />
-                <div className="lab">Key differences from Christianity</div>
-                <ul className="bullets">{r.differences.map((d, i) => <li key={i}>{d}</li>)}</ul>
-                <div className="lab">Common ground</div>
-                <p className="prose">{r.shared}</p>
-                {r.contrasts?.length ? (
-                  <>
-                    <div className="lab">Beliefs &amp; Scripture</div>
-                    <div className="contrasts">
-                      {r.contrasts.map((c, i) => (
-                        <div className="contrast" key={i}>
-                          <p className="c-line"><span className="c-tag teach">They teach</span> {c.belief}</p>
-                          <div className="verse"><span className="q">“{c.verse.text}”</span><span className="ref">{c.verse.ref}</span></div>
-                          <p className="c-line"><span className="c-tag answer">Scripture</span> {c.response}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                ) : null}
-                {seeAlso.length ? (
-                  <div className="seealso">
-                    <p className="k">See also</p>
-                    <div className="row">
-                      {seeAlso.map((t) => (
-                        <Link key={t} className="pill" to={`/glossary?term=${encodeURIComponent(t)}`}>{t}</Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-              </Collapsible>
-              )
-            })
-          ) : (
+          {!list.length ? (
             <div className="empty"><div className="big">No matches</div>Try another search.</div>
+          ) : q ? (
+            list.map(card)
+          ) : (
+            RELIGION_GROUPS.map((g) => {
+              const inGroup = list.filter((r) => r.group === g)
+              return inGroup.length ? (
+                <div key={g}>
+                  <div className="tlabel">{g}</div>
+                  {inGroup.map(card)}
+                </div>
+              ) : null
+            })
           )}
         </>
       )}
