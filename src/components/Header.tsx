@@ -29,6 +29,9 @@ export function Header() {
   // Show a back arrow only on drill-in pages (a category or Settings), not on
   // the primary tabs (Home / Search / Discover).
   const showBack = !!category || isSettings
+  // If we arrived here from Discover, the back arrow returns there rather than Home.
+  const fromDiscover = new URLSearchParams(location.search).get('from') === 'discover'
+  const backTo = fromDiscover ? '/discover' : '/'
   const title = appPage ? appPage.title : category ? category.title : 'Foundations'
   const subtitle = appPage || category ? 'Foundations' : 'A Christian resource'
 
@@ -39,7 +42,7 @@ export function Header() {
     >
       <div className="brand wrap">
         {showBack && (
-          <button className="iconbtn" aria-label="Back to home" onClick={() => navigate('/')}>
+          <button className="iconbtn" aria-label={fromDiscover ? 'Back to Discover' : 'Back to home'} onClick={() => navigate(backTo)}>
             ←
           </button>
         )}

@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import type { CSSProperties } from 'react'
 import { Header } from './components/Header'
 import { TabBar } from './components/TabBar'
@@ -17,6 +17,9 @@ export function App() {
   const pageStyle = category
     ? ({ '--gold': category.accent, '--gilt': category.accent } as CSSProperties)
     : undefined
+  // When an item was opened from the Discover feed, offer an always-visible way
+  // back to it — you shouldn't have to know to tap the Discover tab.
+  const fromDiscover = new URLSearchParams(location.search).get('from') === 'discover'
 
   return (
     <div className="wrap">
@@ -37,6 +40,11 @@ export function App() {
         </div>
         <div className="foot">Foundations · a study companion. Read the full wording in your own Bible.</div>
       </main>
+      {fromDiscover && (
+        <Link className="return-fab" to="/discover" aria-label="Back to Discover">
+          <span aria-hidden>←</span> Back to Discover
+        </Link>
+      )}
       <TabBar />
     </div>
   )

@@ -101,10 +101,10 @@ export function DiscoverView() {
   )
 
   const surprise = {
-    person: () => navigate(`/characters?open=${enc(pickRandom(ALL_CHARACTERS).name)}`),
-    story: () => navigate(`/stories?open=${enc(pickRandom(ALL_STORIES).title)}`),
-    term: () => navigate(`/glossary?term=${enc(pickRandom(TERMS).term)}`),
-    book: () => navigate(`/books?open=${enc(pickRandom(ALL_BOOKS).name)}`),
+    person: () => navigate(`/characters?open=${enc(pickRandom(ALL_CHARACTERS).name)}&from=discover`),
+    story: () => navigate(`/stories?open=${enc(pickRandom(ALL_STORIES).title)}&from=discover`),
+    term: () => navigate(`/glossary?term=${enc(pickRandom(TERMS).term)}&from=discover`),
+    book: () => navigate(`/books?open=${enc(pickRandom(ALL_BOOKS).name)}&from=discover`),
   }
 
   // calendar
@@ -151,7 +151,7 @@ export function DiscoverView() {
       <div className="hlist">
         <div className="dv-item">
           <Check part="character" />
-          <Link className="dv-main" to={`/characters?open=${enc(daily.character.name)}`} onClick={() => mark('character')} style={{ '--acc': '#8C5A9E' } as CSSProperties}>
+          <Link className="dv-main" to={`/characters?open=${enc(daily.character.name)}&from=discover`} onClick={() => mark('character')} style={{ '--acc': '#8C5A9E' } as CSSProperties}>
             <span className="chip" style={{ background: 'color-mix(in srgb, #8C5A9E 15%, var(--card))' }} aria-hidden>👤</span>
             <span className="hrow-txt"><span className="ht">{daily.character.name}</span><span className="hd">{daily.character.role}</span></span>
             <span className="hrow-chev" aria-hidden>›</span>
@@ -159,7 +159,7 @@ export function DiscoverView() {
         </div>
         <div className="dv-item">
           <Check part="story" />
-          <Link className="dv-main" to={`/stories?open=${enc(daily.story.title)}`} onClick={() => mark('story')} style={{ '--acc': '#C15F3C' } as CSSProperties}>
+          <Link className="dv-main" to={`/stories?open=${enc(daily.story.title)}&from=discover`} onClick={() => mark('story')} style={{ '--acc': '#C15F3C' } as CSSProperties}>
             <span className="chip" style={{ background: 'color-mix(in srgb, #C15F3C 15%, var(--card))' }} aria-hidden>📕</span>
             <span className="hrow-txt"><span className="ht">{daily.story.title}</span><span className="hd">{daily.story.kind} · {daily.story.reference}</span></span>
             <span className="hrow-chev" aria-hidden>›</span>
@@ -167,7 +167,7 @@ export function DiscoverView() {
         </div>
         <div className="dv-item">
           <Check part="term" />
-          <Link className="dv-main" to={`/glossary?term=${enc(daily.term.term)}`} onClick={() => mark('term')} style={{ '--acc': '#6E8B3D' } as CSSProperties}>
+          <Link className="dv-main" to={`/glossary?term=${enc(daily.term.term)}&from=discover`} onClick={() => mark('term')} style={{ '--acc': '#6E8B3D' } as CSSProperties}>
             <span className="chip" style={{ background: 'color-mix(in srgb, #6E8B3D 15%, var(--card))' }} aria-hidden>📚</span>
             <span className="hrow-txt"><span className="ht">{daily.term.term}</span><span className="hd">{daily.term.short}</span></span>
             <span className="hrow-chev" aria-hidden>›</span>
