@@ -1,0 +1,8 @@
+/* Search page — reuses .results/.result from hub.css; adds the empty-state browse chips. */
+.search-browse { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 8px; }
+.sb-chip {
+  display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+  font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
+  background: var(--card); border: 1px solid var(--line); border-radius: 99px; padding: 7px 13px;
+}
+.sb-chip:active { background: var(--line); }

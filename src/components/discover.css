@@ -1,0 +1,17 @@
+/* Discover page — verse of the day, featured rows (reuse .hrow), surprise buttons. */
+.dv-verse {
+  border-left: 3px solid var(--gold);
+  background: color-mix(in srgb, var(--gold) 7%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+  border-left: 3px solid var(--gold);
+  border-radius: 12px; padding: 14px 16px; margin: 2px 0 4px;
+}
+.dv-verse .q { font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--ink); line-height: 1.55; }
+.dv-verse .ref { display: block; margin-top: 8px; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: .4px; }
+
+.dv-surprise { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 4px; }
+.dv-surprise button {
+  font-size: 12.5px; font-weight: 600; color: var(--ink-soft);
+  background: var(--card); border: 1px solid var(--gilt); border-radius: 99px; padding: 8px 14px;
+}
+.dv-surprise button:active { background: color-mix(in srgb, var(--gold) 10%, transparent); }
