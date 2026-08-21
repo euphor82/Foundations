@@ -22,4 +22,7 @@ export interface PuritySection {
   verses?: string[]
   /** A closing prayer (HTML with <b> for the lead-in). */
   prayer?: string
+  /** Index of the item that "owns" the prayer: starring it includes the
+   * prayer in the highlighted/filtered view too. */
+  prayerItem?: number
 }

@@ -87,6 +87,7 @@ export const SECTIONS: PuritySection[] = [
       { say: true, t: "God made you on purpose, He loves you, and He's given you His Spirit to help you become a strong, self-controlled man. You won't do this perfectly — nobody does, including me. But you're not doing it alone. You've got God, and you've got me, and my door is always open." },
       { t: 'Pray over him before you finish (prayer below).' },
     ],
+    prayerItem: 1,
     prayer: "<b>A prayer to close:</b> Father, thank You for my son and the good way You made him. Fill him with Your Spirit. Give him self-control that comes from You, a pure heart, and eyes that honor You. When he's tempted, show him the way out. When he stumbles, remind him there's no condemnation in Christ and draw him back. Help him stand firm, and let him always know how deeply he is loved — by You and by me. In Jesus' name, amen.",
   },
 ]

@@ -189,7 +189,12 @@ export function PurityView() {
                 )
               })}
 
-              {sec.prayer && <div className="pw-prayer" dangerouslySetInnerHTML={{ __html: sec.prayer }} />}
+              {sec.prayer && (
+                <div
+                  className={`pw-prayer${sec.prayerItem != null && state.hl[itemId(sec.id, sec.prayerItem)] ? ' pw-hl' : ''}`}
+                  dangerouslySetInnerHTML={{ __html: sec.prayer }}
+                />
+              )}
             </div>
           </section>
         )
