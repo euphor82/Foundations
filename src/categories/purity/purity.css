@@ -1,0 +1,109 @@
+/* Purity walk-through — scoped styles. Everything lives under `.pw` and uses
+ * pw- prefixed classes so this section keeps its own reverent slate/brass look
+ * without colliding with the app's global CSS. Palette ported from the
+ * standalone sheet; kept light in both app themes so it always reads as paper. */
+.pw {
+  --pw-ink: #1C2A3A; --pw-paper: #F6F5F0; --pw-card: #FFFFFF; --pw-muted: #6C7178;
+  --pw-line: #E6E3DA; --pw-gold: #A67C36; --pw-gold-soft: #C7A24B;
+  --pw-sage: #5C7A57; --pw-amber-wash: #FBEED0; --pw-amber-edge: #D6A93A;
+  --pw-shadow: 0 1px 2px rgba(28,42,58,.06), 0 6px 18px rgba(28,42,58,.05);
+  /* edge-bleed so the sheet fills the app content area like its own page */
+  margin: -6px -16px 0; padding: 8px 14px calc(28px + env(safe-area-inset-bottom));
+  background: var(--pw-paper); color: var(--pw-ink);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+.pw a { color: inherit; }
+
+/* ---- top controls: progress + filter + reset ---- */
+.pw-top { padding: 4px 2px 2px; }
+.pw-bar { height: 6px; background: #E9E6DC; border-radius: 99px; overflow: hidden; }
+.pw-bar > i { display: block; height: 100%; width: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--pw-sage), #7a9a74); transition: width .35s ease; }
+.pw-ptext { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  font-size: 11.5px; color: var(--pw-muted); margin-top: 6px; }
+.pw-ptext .pw-actions { display: inline-flex; align-items: center; gap: 12px; }
+.pw-filterbtn { font: 600 11.5px/1 inherit; color: var(--pw-gold); background: none; border: 0; cursor: pointer; padding: 2px 0; }
+.pw-filterbtn.pw-on { color: #8a5f16; }
+.pw-resetbtn { display: inline-flex; align-items: center; gap: 5px; font: 600 11.5px/1 inherit;
+  color: var(--pw-muted); background: none; border: 0; cursor: pointer; padding: 2px 0; }
+.pw-resetbtn:active { color: var(--pw-ink); }
+
+/* ---- legend ---- */
+.pw-legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 11.5px; color: var(--pw-muted); padding: 10px 2px 2px; }
+.pw-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.pw-legchip { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--pw-sage); flex: 0 0 auto; }
+.pw-legmk { width: 16px; height: 16px; border-radius: 4px; background: var(--pw-amber-wash); border: 1px solid var(--pw-amber-edge); flex: 0 0 auto; }
+.pw-legvs { display: inline-block; font: 600 10px/1.4 inherit; color: var(--pw-gold); border: 1px solid #E4D7B6;
+  background: #FBF7EC; border-radius: 5px; padding: 1px 5px; }
+
+/* ---- sections ---- */
+.pw-card { background: var(--pw-card); border: 1px solid var(--pw-line); border-radius: 14px;
+  margin: 12px 0; box-shadow: var(--pw-shadow); overflow: hidden; }
+.pw-shead { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
+  background: none; border: 0; cursor: pointer; padding: 14px 15px; color: var(--pw-ink); }
+.pw-sidx { font: 600 12px/1 Georgia, serif; color: #fff; background: var(--pw-gold); border-radius: 6px;
+  padding: 5px 7px; flex: 0 0 auto; min-width: 26px; text-align: center; }
+.pw-sidx.pw-foryou { background: var(--pw-ink); }
+.pw-sinfo { flex: 1; min-width: 0; }
+.pw-slabel { font: 600 16px/1.25 Georgia, serif; }
+.pw-skick { font-size: 11px; color: var(--pw-muted); text-transform: uppercase; letter-spacing: .4px; }
+.pw-scount { font-size: 12px; color: var(--pw-muted); white-space: nowrap; }
+.pw-chev { transition: transform .25s ease; color: var(--pw-muted); flex: 0 0 auto; }
+.pw-card.pw-open .pw-chev { transform: rotate(90deg); }
+.pw-sbody { display: none; padding: 2px 12px 12px; }
+.pw-card.pw-open .pw-sbody { display: block; }
+
+/* ---- items ---- */
+.pw-item { display: flex; gap: 11px; align-items: flex-start; padding: 11px 8px;
+  border-top: 1px solid #F0EEE6; border-radius: 8px; }
+.pw-item:first-child { border-top: 0; }
+.pw-check { flex: 0 0 auto; width: 22px; height: 22px; margin-top: 1px; border-radius: 50%;
+  border: 2px solid #C6CBB9; background: #fff; cursor: pointer; display: grid; place-items: center; transition: .15s; }
+.pw-check svg { opacity: 0; transform: scale(.6); transition: .15s; }
+.pw-item.pw-done .pw-check { background: var(--pw-sage); border-color: var(--pw-sage); }
+.pw-item.pw-done .pw-check svg { opacity: 1; transform: scale(1); }
+.pw-body { flex: 1; min-width: 0; }
+.pw-txt { font-size: 15px; }
+.pw-item.pw-done .pw-txt { color: #8b9096; }
+.pw-mkbtn { flex: 0 0 auto; background: none; border: 0; cursor: pointer; padding: 2px 3px; margin-top: -1px; color: #C9C4B4; line-height: 0; }
+.pw-item.pw-hl { background: var(--pw-amber-wash); box-shadow: inset 3px 0 0 var(--pw-amber-edge); }
+.pw-item.pw-hl .pw-mkbtn { color: var(--pw-amber-edge); }
+
+/* say / quote cards */
+.pw-item.pw-say { background: #FAF8F2; border: 1px solid #EDE7D6; border-radius: 11px; margin: 9px 0; padding: 12px 11px; }
+.pw-item.pw-say .pw-txt { font-style: italic; color: #40484f; }
+.pw-item.pw-say.pw-hl { background: var(--pw-amber-wash); border-color: var(--pw-amber-edge); }
+.pw-saytag { display: inline-block; font: 700 9.5px/1 inherit; letter-spacing: .7px; color: var(--pw-gold);
+  text-transform: uppercase; margin-bottom: 5px; }
+.pw-item.pw-say.pw-done .pw-txt { color: #9a9f94; }
+
+/* verse chips */
+.pw-verse { display: inline-block; font: 600 12.5px/1.4 inherit; color: #8a5f16; text-decoration: none;
+  background: #FBF7EC; border: 1px solid #E4D7B6; border-radius: 6px; padding: 0 6px; margin: 1px 1px; white-space: nowrap; }
+.pw-verse:active { background: #f2e9d2; }
+.pw-verse::before { content: "\1F4D6"; font-size: 10px; margin-right: 3px; filter: grayscale(.2); }
+
+/* verse grid */
+.pw-vgrid { display: flex; flex-wrap: wrap; gap: 7px; padding: 12px 10px 4px; }
+
+/* prayer */
+.pw-prayer { background: linear-gradient(180deg, #FBF9F3, #F7F4EA); border: 1px solid #EDE7D6;
+  border-radius: 12px; padding: 14px 14px; margin: 10px 6px 4px; font-style: italic; color: #3c444b; font-size: 14.5px; }
+.pw-prayer b { font-style: normal; color: var(--pw-ink); }
+
+.pw-foot { text-align: center; color: var(--pw-muted); font-size: 11.5px; padding: 16px 10px 4px; line-height: 1.6; }
+.pw-foot em { color: #8a5f16; font-style: normal; }
+
+/* toast */
+.pw-toast { position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%) translateY(20px);
+  background: var(--pw-ink); color: #fff; font-size: 13px; padding: 9px 14px; border-radius: 10px;
+  opacity: 0; pointer-events: none; transition: .25s; z-index: 40; }
+.pw-toast.pw-show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* filtered mode: show only highlighted items */
+.pw.pw-filtered .pw-item:not(.pw-hl) { display: none; }
+.pw.pw-filtered .pw-card.pw-empty { display: none; }
+.pw.pw-filtered .pw-vgrid,
+.pw.pw-filtered .pw-prayer { display: none; }
+
+@media (prefers-reduced-motion: reduce) { .pw * { transition: none !important; } }

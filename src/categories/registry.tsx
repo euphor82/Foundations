@@ -9,6 +9,7 @@ import { ReligionsView } from './religions/ReligionsView'
 import { DenominationsView } from './denominations/DenominationsView'
 import { ApologeticsView } from './apologetics/ApologeticsView'
 import { GlossaryView } from './glossary/GlossaryView'
+import { PurityView } from './purity/PurityView'
 import { store } from '../lib/store'
 import { TOTAL_BOOKS } from './books/data'
 import { TOTAL_STORIES } from './stories/data'
@@ -152,6 +153,17 @@ export const CATEGORIES: Category[] = [
     accent: '#6E8B3D',
     tagline: 'Key terms',
     element: <GlossaryView />,
+  },
+  {
+    id: 'purity',
+    group: 'Reference',
+    path: '/purity',
+    title: 'Purity',
+    icon: '🕊️',
+    blurb: "A father's grace-forward walk-through for talking with a son about purity and self-control.",
+    accent: '#A67C36',
+    tagline: 'Father–son talk guide',
+    element: <PurityView />,
   },
 ]
 
