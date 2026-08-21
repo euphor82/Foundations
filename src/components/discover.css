@@ -1,14 +1,82 @@
-/* Discover page — verse of the day, featured rows (reuse .hrow), surprise buttons. */
-.dv-verse {
-  border-left: 3px solid var(--gold);
-  background: color-mix(in srgb, var(--gold) 7%, var(--card));
-  border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
-  border-left: 3px solid var(--gold);
-  border-radius: 12px; padding: 14px 16px; margin: 2px 0 4px;
-}
-.dv-verse .q { font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--ink); line-height: 1.55; }
-.dv-verse .ref { display: block; margin-top: 8px; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: .4px; }
+/* Discover page — daily items with check-offs, streak stats, and a calendar. */
 
+.dv-banner {
+  display: flex; align-items: center; gap: 8px; margin: 8px 0 2px;
+  background: color-mix(in srgb, var(--gold) 14%, transparent);
+  border: 1px solid var(--gilt); border-radius: 12px; padding: 11px 14px;
+  font-weight: 700; font-size: 14px; color: var(--gold);
+}
+.dv-progress { margin: 8px 2px 2px; font-size: 12px; font-weight: 600; color: var(--muted); }
+
+/* a daily item = check circle + its content */
+.dv-item { display: flex; align-items: stretch; gap: 10px; margin-bottom: 8px; }
+.dv-check {
+  flex: 0 0 auto; width: 26px; height: 26px; margin-top: 10px; border-radius: 50%;
+  border: 2px solid var(--gilt); background: var(--card); color: #fff;
+  font-size: 14px; font-weight: 800; line-height: 1; display: flex; align-items: center; justify-content: center;
+}
+.dv-check.on { background: var(--gold); border-color: var(--gold); }
+
+/* verse card */
+.dv-verse-item .dv-check { margin-top: 16px; }
+.dv-verse {
+  flex: 1; border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+  border-left: 3px solid var(--gold); background: color-mix(in srgb, var(--gold) 6%, var(--card));
+  border-radius: 12px; padding: 13px 15px;
+}
+.dv-verse .q { font-family: var(--serif); font-style: italic; font-size: 15.5px; color: var(--ink); line-height: 1.55; }
+.dv-verse .ref { display: block; margin-top: 7px; font-size: 12px; font-weight: 700; color: var(--gold); letter-spacing: .4px; }
+
+/* catechism card (tap to reveal) */
+.dv-cat {
+  flex: 1; text-align: left; background: var(--card); border: 1px solid var(--line);
+  border-left: 3px solid var(--gilt); border-radius: 12px; padding: 12px 14px; display: block;
+}
+.dv-q { font-family: var(--serif); font-size: 14.5px; font-weight: 700; color: var(--ink); line-height: 1.3; display: block; }
+.dv-a { display: block; margin-top: 8px; font-size: 14px; color: var(--ink-soft); line-height: 1.5; }
+.dv-a .ref { font-weight: 700; color: var(--gold); }
+.dv-hint { display: block; margin-top: 6px; font-size: 11.5px; font-weight: 600; color: var(--gold); }
+
+/* pick rows: the tappable part next to the check */
+.dv-main {
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 11px; text-decoration: none;
+  background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--acc, var(--gilt));
+  border-radius: 12px; padding: 9px 13px; box-shadow: var(--shadow);
+}
+.dv-main .chip { width: 34px; height: 34px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; line-height: 1; flex: 0 0 auto; }
+
+/* streak stats */
+.dv-stats { display: flex; gap: 8px; margin: 2px 0 12px; }
+.dv-stat {
+  flex: 1; text-align: center; background: var(--card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 6px;
+}
+.dv-stat .n { display: block; font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--gold); line-height: 1; }
+.dv-stat .l { display: block; margin-top: 4px; font-size: 10.5px; font-weight: 600; letter-spacing: .3px; color: var(--muted); text-transform: uppercase; }
+
+/* calendar */
+.dv-cal { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 12px 14px; margin-bottom: 4px; }
+.dv-cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.dv-cal-title { font-family: var(--serif); font-size: 15px; font-weight: 700; }
+.dv-cal-nav {
+  width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--line); background: var(--card);
+  color: var(--gold); font-size: 18px; line-height: 1; display: flex; align-items: center; justify-content: center;
+}
+.dv-cal-nav:active { background: var(--line); }
+.dv-cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.dv-cal-wd { text-align: center; font-size: 10px; font-weight: 700; color: var(--muted); padding-bottom: 4px; }
+.dv-day {
+  aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+  font-size: 12.5px; color: var(--ink-soft); border-radius: 50%; position: relative;
+}
+.dv-day.done { background: var(--gold); color: #fff; font-weight: 700; }
+.dv-day.today { outline: 2px solid var(--gilt); outline-offset: -2px; }
+.dv-day.partial::after {
+  content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%);
+  width: 4px; height: 4px; border-radius: 50%; background: var(--gilt);
+}
+
+/* surprise buttons */
 .dv-surprise { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 4px; }
 .dv-surprise button {
   font-size: 12.5px; font-weight: 600; color: var(--ink-soft);

@@ -48,8 +48,12 @@ export const VERSES: Verse[] = [
   { ref: 'Revelation 21:4', text: 'He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore, for the former things have passed away.' },
 ]
 
-/** The current day number (days since the Unix epoch, local). */
-export const dayNumber = () => Math.floor(Date.now() / 86_400_000)
+/** The current day number, anchored to LOCAL midnight (so it rolls over at the
+ *  same moment the streak day does). */
+export const dayNumber = () => {
+  const d = new Date()
+  return Math.floor(new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime() / 86_400_000)
+}
 
 /** Deterministic pick for the day, spread by a coprime stride per feature. */
 export function pickOfDay<T>(arr: T[], stride: number): T {
