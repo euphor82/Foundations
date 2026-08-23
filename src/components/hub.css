@@ -25,6 +25,14 @@
 .hrow .hd { font-size: 11px; color: var(--muted); margin-top: 1px; }
 .hrow-chev { color: var(--gilt); font-size: 16px; flex: 0 0 auto; }
 
+/* search section filter (appears when the home search is focused) */
+.search-filter { margin: 2px 0 2px; }
+.sf-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 6px 2px 0; }
+.sf-scope { font-size: 12px; font-weight: 600; color: var(--muted); }
+.sf-all { font-size: 12px; font-weight: 700; color: var(--gold); background: none; border: 0; padding: 2px 0; }
+.sf-all:active { opacity: .7; }
+.search-filter .chips { padding: 8px 0 2px; }
+
 /* global search results */
 .results { margin-top: 4px; }
 .result {

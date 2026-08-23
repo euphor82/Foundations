@@ -3,7 +3,6 @@ import type { CSSProperties } from 'react'
 import { Header } from './components/Header'
 import { TabBar } from './components/TabBar'
 import { Hub } from './components/Hub'
-import { SearchView } from './components/SearchView'
 import { DiscoverView } from './components/DiscoverView'
 import { QuizView } from './components/QuizView'
 import { SettingsView } from './components/SettingsView'
@@ -28,7 +27,6 @@ export function App() {
         <div className="page" key={location.pathname} style={pageStyle}>
           <Routes location={location}>
             <Route path="/" element={<Hub />} />
-            <Route path="/search" element={<SearchView />} />
             <Route path="/discover" element={<DiscoverView />} />
             <Route path="/quiz" element={<QuizView />} />
             <Route path="/settings" element={<SettingsView />} />

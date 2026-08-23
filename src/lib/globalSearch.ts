@@ -83,11 +83,16 @@ export const SECTION_ORDER = [
   'Church Calendar', 'Religions', 'Denominations', 'Apologetics', 'Glossary',
 ]
 
-export function searchAll(query: string, limit = 60): SearchResult[] {
+/** Search the index. Pass `sections` to restrict to those section names;
+ * omit (or pass an empty set) to search everything. The limit is applied
+ * after section filtering so a narrow scope still returns full results. */
+export function searchAll(query: string, sections?: Set<string>, limit = 60): SearchResult[] {
   const q = query.trim().toLowerCase()
   if (q.length < 2) return []
+  const scoped = sections && sections.size > 0
   const out: SearchResult[] = []
   for (const r of INDEX) {
+    if (scoped && !sections!.has(r.section)) continue
     if (r.hay.includes(q)) out.push(r)
     if (out.length >= limit) break
   }
