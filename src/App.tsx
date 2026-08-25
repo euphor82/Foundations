@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react'
 import { Header } from './components/Header'
 import { TabBar } from './components/TabBar'
 import { Hub } from './components/Hub'
+import { InstallHint } from './components/InstallHint'
 import { DiscoverView } from './components/DiscoverView'
 import { QuizView } from './components/QuizView'
 import { SettingsView } from './components/SettingsView'
@@ -24,6 +25,7 @@ export function App() {
     <div className="wrap">
       <Header />
       <main className="main">
+        <InstallHint />
         <div className="page" key={location.pathname} style={pageStyle}>
           <Routes location={location}>
             <Route path="/" element={<Hub />} />
