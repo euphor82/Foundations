@@ -1,21 +1,59 @@
+import { useState } from 'react'
 import { Collapsible } from '../../components/Collapsible'
+import { store } from '../../lib/store'
 import {
-  GOSPEL_INTRO, ONE_SENTENCE, POINTS, ROMANS_ROAD, RESPOND, PRAYER, PRAYER_NOTE,
-  MEMORY_VERSES, TIPS,
+  GOSPEL_INTRO, ONE_SENTENCE, GRACE_TITLE, GRACE_NOTE, GRACE_VERSES, POINTS, ROMANS_ROAD,
+  RESPOND, PRAYER, PRAYER_NOTE, MEMORY_VERSES, TIPS, VERSES, WEB_NOTE,
+  CHILD_INTRO, CHILD_WELCOME_VERSE, CHILD_POINTS, CHILD_PRAYER, CHILD_PRAYER_NOTE, CHILD_TIPS,
 } from './data'
 import './gospel.css'
 
 const esvUrl = (ref: string) => `https://www.esv.org/${ref.trim().replace(/[–—]/g, '-').replace(/\s+/g, '+')}/`
 
-const Refs = ({ refs }: { refs: string[] }) => (
-  <div className="gm-refs">
-    {refs.map((r) => (
-      <a key={r} className="pill" href={esvUrl(r)} target="_blank" rel="noopener noreferrer">{r} ↗</a>
-    ))}
-  </div>
+/** One reference: shows a quick-view gist always, and reveals the full WEB text
+ *  inline on tap (no browser). A small ESV link is offered inside, optional. */
+function Verse({ refId }: { refId: string }) {
+  const [open, setOpen] = useState(false)
+  const entry = VERSES[refId]
+  const gist = entry?.gist
+  return (
+    <div className={`gm-v${open ? ' open' : ''}`}>
+      <button className="gm-v-head" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
+        <span className="gm-v-ref">{refId}</span>
+        {gist && <span className="gm-v-gist">{gist}</span>}
+        <span className="gm-v-chev" aria-hidden>›</span>
+      </button>
+      {open && (
+        <div className="gm-v-body">
+          <p className="gm-v-text">{entry ? entry.text : 'Verse text unavailable — tap “Read in ESV”.'}</p>
+          <a className="gm-v-esv" href={esvUrl(refId)} target="_blank" rel="noopener noreferrer">Read in ESV ↗</a>
+        </div>
+      )}
+    </div>
+  )
+}
+
+const Verses = ({ refs }: { refs: string[] }) => (
+  <div className="gm-verses">{refs.map((r) => <Verse key={r} refId={r} />)}</div>
 )
 
-export function GospelView() {
+function Points({ list }: { list: typeof POINTS }) {
+  return (
+    <>
+      {list.map((p, i) => (
+        <div className="gm-point" key={p.title}>
+          <h3><span className="gm-num">{p.key.length <= 2 ? p.key : i + 1}</span>{p.title}</h3>
+          <p className="gm-sum">{p.summary}</p>
+          <ul className="bullets">{p.points.map((pt, j) => <li key={j}>{pt}</li>)}</ul>
+          <div className="lab">Scripture</div>
+          <Verses refs={p.verses} />
+        </div>
+      ))}
+    </>
+  )
+}
+
+function Adult() {
   return (
     <>
       <div className="note">{GOSPEL_INTRO}</div>
@@ -23,6 +61,12 @@ export function GospelView() {
       <div className="gm-one">
         <span className="gm-one-k">The gospel in one sentence</span>
         {ONE_SENTENCE}
+      </div>
+
+      <div className="gm-grace">
+        <span className="gm-one-k">{GRACE_TITLE}</span>
+        <p className="gm-grace-t">{GRACE_NOTE}</p>
+        <Verses refs={GRACE_VERSES} />
       </div>
 
       <div className="tlabel">The four-point outline</div>
@@ -35,14 +79,7 @@ export function GospelView() {
         ))}
       </div>
 
-      {POINTS.map((p, i) => (
-        <div className="gm-point" key={p.key}>
-          <h3><span className="gm-num">{i + 1}</span>{p.title}</h3>
-          <p className="gm-sum">{p.summary}</p>
-          <ul className="bullets">{p.points.map((pt, j) => <li key={j}>{pt}</li>)}</ul>
-          <Refs refs={p.verses} />
-        </div>
-      ))}
+      <Points list={POINTS} />
 
       <div className="tlabel">Quick tools</div>
 
@@ -51,8 +88,8 @@ export function GospelView() {
         <ol className="gm-road">
           {ROMANS_ROAD.map((s) => (
             <li key={s.ref}>
-              <a className="pill" href={esvUrl(s.ref)} target="_blank" rel="noopener noreferrer">{s.ref} ↗</a>
               <span className="gm-road-note">{s.note}</span>
+              <Verse refId={s.ref} />
             </li>
           ))}
         </ol>
@@ -62,9 +99,9 @@ export function GospelView() {
         {RESPOND.map((s) => (
           <div className="gm-abc" key={s.letter}>
             <span className="gm-abc-l">{s.letter}</span>
-            <div>
+            <div className="gm-abc-main">
               <div className="gm-abc-t"><b>{s.title}.</b> {s.detail}</div>
-              <Refs refs={s.verses} />
+              <Verses refs={s.verses} />
             </div>
           </div>
         ))}
@@ -74,16 +111,55 @@ export function GospelView() {
       </Collapsible>
 
       <Collapsible title="Verses to memorize" meta={`${MEMORY_VERSES.length} verses`}>
-        <div className="gm-refs">
-          {MEMORY_VERSES.map((r) => (
-            <a key={r} className="pill" href={esvUrl(r)} target="_blank" rel="noopener noreferrer">{r} ↗</a>
-          ))}
-        </div>
+        <Verses refs={MEMORY_VERSES} />
       </Collapsible>
 
       <Collapsible title="Tips for sharing" meta="Be gracious">
         <ul className="bullets">{TIPS.map((t, i) => <li key={i}>{t}</li>)}</ul>
       </Collapsible>
+    </>
+  )
+}
+
+function Child() {
+  return (
+    <>
+      <div className="note">{CHILD_INTRO}</div>
+
+      <div className="gm-one">
+        <span className="gm-one-k">Jesus loves children</span>
+        <Verse refId={CHILD_WELCOME_VERSE} />
+      </div>
+
+      <Points list={CHILD_POINTS} />
+
+      <div className="tlabel">A prayer to pray together</div>
+      <div className="gm-prayer">{CHILD_PRAYER}</div>
+      <p className="gm-note">{CHILD_PRAYER_NOTE}</p>
+
+      <Collapsible title="Tips for parents" meta="Keep it simple">
+        <ul className="bullets">{CHILD_TIPS.map((t, i) => <li key={i}>{t}</li>)}</ul>
+      </Collapsible>
+    </>
+  )
+}
+
+export function GospelView() {
+  const [mode, setMode] = useState<'adult' | 'child'>(() =>
+    store.get<string>('gospel.mode', 'adult') === 'child' ? 'child' : 'adult',
+  )
+  const pick = (m: 'adult' | 'child') => { setMode(m); store.set('gospel.mode', m) }
+
+  return (
+    <>
+      <div className="gm-toggle" role="group" aria-label="Audience">
+        <button className={mode === 'adult' ? 'on' : ''} onClick={() => pick('adult')}>For an adult</button>
+        <button className={mode === 'child' ? 'on' : ''} onClick={() => pick('child')}>For a child</button>
+      </div>
+
+      {mode === 'adult' ? <Adult /> : <Child />}
+
+      <p className="gm-web">{WEB_NOTE}</p>
     </>
   )
 }

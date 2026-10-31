@@ -92,6 +92,10 @@ const INDEX: SearchResult[] = [
     section: 'The Gospel Message', label: 'How to respond — A · B · C', sub: 'Repent & believe',
     to: '/gospel', hay: lc('respond repent believe confess abc salvation prayer', RESPOND.map((s) => s.title + ' ' + s.detail).join(' ')),
   },
+  {
+    section: 'The Gospel Message', label: 'Sharing the gospel with a child', sub: 'Children’s version',
+    to: '/gospel', hay: lc('child children kids child-friendly gospel salvation simple'),
+  },
 ]
 
 /** Section display order for grouping results. */
