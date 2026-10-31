@@ -12,6 +12,7 @@ import { PERIODS } from '../categories/church-history/data'
 import { CALENDAR } from '../categories/church-calendar/data'
 import { QUESTIONS } from '../categories/apologetics/data'
 import { CATECHISM } from '../categories/apologetics/catechism'
+import { POINTS as GOSPEL_POINTS, ROMANS_ROAD, RESPOND, ONE_SENTENCE } from '../categories/gospel/data'
 
 export interface SearchResult {
   section: string
@@ -75,12 +76,28 @@ const INDEX: SearchResult[] = [
     section: 'Apologetics', label: `${c.n}. ${c.question}`, sub: 'Catechism',
     to: '/apologetics?tab=catechism', hay: lc(c.question, c.answer, c.ref, 'catechism'),
   })),
+  ...GOSPEL_POINTS.map((p) => ({
+    section: 'The Gospel Message', label: p.title, sub: p.key,
+    to: '/gospel', hay: lc(p.key, p.title, p.summary, p.points.join(' '), p.verses.join(' '), 'gospel salvation'),
+  })),
+  {
+    section: 'The Gospel Message', label: 'The gospel in one sentence', sub: 'Quick recall',
+    to: '/gospel', hay: lc(ONE_SENTENCE, 'gospel salvation summary'),
+  },
+  {
+    section: 'The Gospel Message', label: 'The Romans Road', sub: 'Quick tool',
+    to: '/gospel', hay: lc('romans road', ROMANS_ROAD.map((s) => s.ref + ' ' + s.note).join(' ')),
+  },
+  {
+    section: 'The Gospel Message', label: 'How to respond — A · B · C', sub: 'Repent & believe',
+    to: '/gospel', hay: lc('respond repent believe confess abc salvation prayer', RESPOND.map((s) => s.title + ' ' + s.detail).join(' ')),
+  },
 ]
 
 /** Section display order for grouping results. */
 export const SECTION_ORDER = [
   'Book by Book', 'Bible Characters', 'Bible Stories', 'Timeline', 'Church History',
-  'Church Calendar', 'Religions', 'Denominations', 'Apologetics', 'Glossary',
+  'Church Calendar', 'The Gospel Message', 'Religions', 'Denominations', 'Apologetics', 'Glossary',
 ]
 
 /** Search the index. Pass `sections` to restrict to those section names;

@@ -8,6 +8,7 @@ import { ChurchCalendarView } from './church-calendar/ChurchCalendarView'
 import { ReligionsView } from './religions/ReligionsView'
 import { DenominationsView } from './denominations/DenominationsView'
 import { ApologeticsView } from './apologetics/ApologeticsView'
+import { GospelView } from './gospel/GospelView'
 import { GlossaryView } from './glossary/GlossaryView'
 import { store } from '../lib/store'
 import { TOTAL_BOOKS } from './books/data'
@@ -108,6 +109,17 @@ export const CATEGORIES: Category[] = [
     accent: '#4F8A52',
     tagline: 'Seasons & feasts',
     element: <ChurchCalendarView />,
+  },
+  {
+    id: 'gospel',
+    group: 'Faith & Belief',
+    path: '/gospel',
+    title: 'The Gospel Message',
+    icon: '✝️',
+    blurb: 'An easy-to-remember guide for sharing the good news of Jesus, with the verses behind each point.',
+    accent: '#C0433D',
+    tagline: 'Sharing the Good News',
+    element: <GospelView />,
   },
   {
     id: 'religions',

@@ -1,0 +1,66 @@
+/* The Gospel Message — a concise, memorable sharing guide. Uses theme tokens,
+ * so --gold/--gilt pick up the section accent set on the .page wrapper. */
+
+/* one-sentence gospel callout */
+.gm-one {
+  background: color-mix(in srgb, var(--gold) 8%, var(--card));
+  border: 1px solid var(--gilt); border-left: 3px solid var(--gold);
+  border-radius: 12px; padding: 13px 15px; margin: 10px 0 2px;
+  font-family: var(--serif); font-size: 15.5px; font-style: italic; color: var(--ink); line-height: 1.55;
+}
+.gm-one-k {
+  display: block; font-family: var(--sans); font-style: normal; font-size: 10.5px; font-weight: 700;
+  letter-spacing: 1.1px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;
+}
+
+/* memorable keyword spine: God → Sin → Christ → Response */
+.gm-spine { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 2px 0 6px; }
+.gm-spine-item { display: inline-flex; align-items: center; gap: 6px; }
+.gm-chip {
+  font-family: var(--serif); font-size: 13.5px; font-weight: 700; color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 12%, var(--card));
+  border: 1px solid var(--gilt); border-radius: 99px; padding: 5px 13px;
+}
+.gm-arrow { color: var(--muted); font-size: 14px; }
+
+/* the four core points, always visible */
+.gm-point {
+  background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--gold);
+  border-radius: 12px; padding: 12px 14px 13px; margin: 9px 0; box-shadow: var(--shadow);
+}
+.gm-point h3 {
+  display: flex; align-items: center; gap: 9px; margin: 0 0 5px;
+  font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--ink); line-height: 1.25;
+}
+.gm-num {
+  flex: 0 0 auto; width: 24px; height: 24px; border-radius: 7px; display: grid; place-items: center;
+  font-size: 13px; font-weight: 700; color: #fff; background: var(--gold);
+}
+.gm-sum { margin: 0 0 8px; font-size: 14px; font-weight: 600; color: var(--ink-soft); }
+.gm-refs { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }
+
+/* Romans Road ordered list */
+.gm-road { list-style: none; margin: 4px 0 0; padding: 0; counter-reset: road; }
+.gm-road li { display: flex; flex-direction: column; gap: 4px; padding: 8px 0; border-top: 1px solid var(--line); }
+.gm-road li:first-child { border-top: 0; }
+.gm-road .pill { align-self: flex-start; }
+.gm-road-note { font-size: 14px; color: var(--ink-soft); }
+
+/* A·B·C respond steps */
+.gm-abc { display: flex; gap: 11px; align-items: flex-start; padding: 8px 0; }
+.gm-abc-l {
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--serif); font-weight: 700; font-size: 14px; color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 12%, var(--card)); border: 1px solid var(--gilt);
+}
+.gm-abc-t { font-size: 14.5px; color: var(--ink-soft); }
+.gm-abc-t b { color: var(--ink); }
+.gm-abc .gm-refs { margin-top: 7px; }
+
+/* model prayer */
+.gm-prayer {
+  background: color-mix(in srgb, var(--gold) 6%, var(--card)); border: 1px solid var(--line);
+  border-radius: 11px; padding: 12px 14px; font-family: var(--serif); font-style: italic;
+  font-size: 15px; color: var(--ink); line-height: 1.6;
+}
+.gm-note { margin: 8px 2px 0; font-size: 12.5px; color: var(--muted); }
