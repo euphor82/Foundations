@@ -5,6 +5,7 @@ import {
   GOSPEL_INTRO, ONE_SENTENCE, GRACE_TITLE, GRACE_NOTE, GRACE_VERSES, POINTS, ROMANS_ROAD,
   RESPOND, PRAYER, PRAYER_NOTE, MEMORY_VERSES, TIPS, VERSES, WEB_NOTE,
   CHILD_INTRO, CHILD_WELCOME_VERSE, CHILD_POINTS, CHILD_PRAYER, CHILD_PRAYER_NOTE, CHILD_TIPS,
+  ENCOURAGE_INTRO, ENCOURAGE, CHILD_ENCOURAGE,
 } from './data'
 import './gospel.css'
 
@@ -45,8 +46,12 @@ function Points({ list }: { list: typeof POINTS }) {
           <h3><span className="gm-num">{p.key.length <= 2 ? p.key : i + 1}</span>{p.title}</h3>
           <p className="gm-sum">{p.summary}</p>
           <ul className="bullets">{p.points.map((pt, j) => <li key={j}>{pt}</li>)}</ul>
-          <div className="lab">Scripture</div>
-          <Verses refs={p.verses} />
+          {p.verses.length > 0 && (
+            <>
+              <div className="lab">Scripture</div>
+              <Verses refs={p.verses} />
+            </>
+          )}
         </div>
       ))}
     </>
@@ -80,6 +85,10 @@ function Adult() {
       </div>
 
       <Points list={POINTS} />
+
+      <div className="tlabel">Encouragement — what’s next</div>
+      <p className="prose">{ENCOURAGE_INTRO}</p>
+      <Points list={ENCOURAGE} />
 
       <div className="tlabel">Quick tools</div>
 
@@ -136,6 +145,9 @@ function Child() {
       <div className="tlabel">A prayer to pray together</div>
       <div className="gm-prayer">{CHILD_PRAYER}</div>
       <p className="gm-note">{CHILD_PRAYER_NOTE}</p>
+
+      <div className="tlabel">Keep going!</div>
+      <Points list={CHILD_ENCOURAGE} />
 
       <Collapsible title="Tips for parents" meta="Keep it simple">
         <ul className="bullets">{CHILD_TIPS.map((t, i) => <li key={i}>{t}</li>)}</ul>

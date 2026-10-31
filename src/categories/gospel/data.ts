@@ -36,6 +36,16 @@ export const VERSES: Record<string, VerseEntry> = {
   'Matthew 19:14': { gist: 'Jesus welcomes children', text: 'But Jesus said, “Allow the little children, and don’t forbid them to come to me; for the Kingdom of Heaven belongs to ones like these.”' },
   'Titus 3:5': { gist: 'Saved by His mercy, not our works', text: 'not by works of righteousness which we did ourselves, but according to his mercy, he saved us through the washing of regeneration and renewing by the Holy Spirit,' },
   'Romans 3:28': { gist: 'Justified by faith, apart from works', text: 'We maintain therefore that a man is justified by faith apart from the works of the law.' },
+  'Matthew 4:4': { gist: 'Live by God’s every word', text: 'But he answered, “It is written, ‘Man shall not live by bread alone, but by every word that proceeds out of God’s mouth.’”' },
+  'Psalm 119:105': { gist: 'God’s Word lights the way', text: 'Your word is a lamp to my feet, and a light for my path.' },
+  'Joshua 1:8': { gist: 'Meditate on it day and night', text: 'This book of the law shall not depart out of your mouth, but you shall meditate on it day and night, that you may observe to do according to all that is written in it; for then you shall make your way prosperous, and then you shall have good success.' },
+  'John 20:31': { gist: 'Written so you may believe', text: 'but these are written, that you may believe that Jesus is the Christ, the Son of God, and that believing you may have life in his name.' },
+  'Romans 1:16': { gist: 'The gospel is God’s power to save', text: 'For I am not ashamed of the Good News of Christ, because it is the power of God for salvation for everyone who believes, for the Jew first, and also for the Greek.' },
+  'Philippians 4:6-7': { gist: 'Pray instead of worrying', text: 'In nothing be anxious, but in everything, by prayer and petition with thanksgiving, let your requests be made known to God. And the peace of God, which surpasses all understanding, will guard your hearts and your thoughts in Christ Jesus.' },
+  '1 Thessalonians 5:16-18': { gist: 'Pray always, give thanks', text: 'Rejoice always. Pray without ceasing. In everything give thanks, for this is the will of God in Christ Jesus toward you.' },
+  'Hebrews 10:24-25': { gist: 'Don’t neglect meeting together', text: 'Let us consider how to provoke one another to love and good works, not forsaking our own assembling together, as the custom of some is, but exhorting one another, and so much the more as you see the Day approaching.' },
+  'Acts 2:42': { gist: 'The early church’s daily habits', text: 'They continued steadfastly in the apostles’ teaching and fellowship, in the breaking of bread, and prayer.' },
+  'Matthew 28:19-20': { gist: 'Go and make disciples', text: 'Go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, teaching them to observe all things that I commanded you. Behold, I am with you always, even to the end of the age.”' },
 }
 
 export const GOSPEL_INTRO =
@@ -212,4 +222,91 @@ export const CHILD_TIPS: string[] = [
   'Tell them why you love Jesus.',
   'It’s okay to talk about it again and again — this is a first conversation, not the only one.',
   'Pray together, and celebrate their interest.',
+]
+
+/* ---------- Encouragement — next steps for a new Christian ---------- */
+
+export const ENCOURAGE_INTRO =
+  'Trusting Jesus is the beginning, not the end. Here’s how to start growing.'
+
+export const ENCOURAGE: GospelPoint[] = [
+  {
+    key: '1',
+    title: 'Read your Bible every day',
+    summary: 'Make it a daily habit — “No Bible, no breakfast; no read, no feed.”',
+    points: [
+      'God speaks to us through His Word — give it time every day.',
+      'Start small and be consistent; even a few minutes daily builds you up.',
+      'Pick a set time (mornings work well) so it becomes a habit.',
+    ],
+    verses: ['Matthew 4:4', 'Psalm 119:105', 'Joshua 1:8'],
+  },
+  {
+    key: '2',
+    title: 'Where to start reading',
+    summary: 'Begin with the story of Jesus, then the gospel explained.',
+    points: [
+      'Start with the Gospel of John — who Jesus is and why He came.',
+      'Then read Romans — grace and the gospel laid out clearly.',
+      'From there, the other Gospels (Matthew, Mark, Luke) and Acts.',
+    ],
+    verses: ['John 20:31', 'Romans 1:16'],
+  },
+  {
+    key: '3',
+    title: 'Pray every day',
+    summary: 'Prayer is simply talking with God — bring Him everything.',
+    points: [
+      'Thank Him, tell Him what’s on your heart, and ask for help.',
+      'You don’t need fancy words — just be honest.',
+      'Talk with Him through the day, not only at set times.',
+    ],
+    verses: ['Philippians 4:6-7', '1 Thessalonians 5:16-18'],
+  },
+  {
+    key: '4',
+    title: 'Find a good church',
+    summary: 'Don’t go it alone — join a Bible-teaching church family.',
+    points: [
+      'Look for a church that teaches the Bible and salvation by grace through faith alone in Christ.',
+      'Get baptized, and grow alongside other believers.',
+      'Keep showing up — we’re meant to follow Jesus together.',
+    ],
+    verses: ['Hebrews 10:24-25', 'Acts 2:42'],
+  },
+  {
+    key: '5',
+    title: 'Keep following — and tell someone',
+    summary: 'Share what Jesus has done, and keep trusting Him.',
+    points: [
+      'Tell a friend or family member your good news.',
+      'Keep turning to Jesus daily — in the good and the hard.',
+      'He is with you always.',
+    ],
+    verses: ['Matthew 28:19-20'],
+  },
+]
+
+export const CHILD_ENCOURAGE: GospelPoint[] = [
+  {
+    key: '1',
+    title: 'Read the Bible every day',
+    summary: 'Read the Bible (or a kids’ Bible) with a grown-up each day to learn about Jesus.',
+    points: ['God’s Word helps us know and follow Him.', 'A little every day is great!'],
+    verses: ['Psalm 119:105'],
+  },
+  {
+    key: '2',
+    title: 'Talk to God (pray)',
+    summary: 'You can talk to God anytime, like a friend — He always listens.',
+    points: ['Say thank you, say sorry, and ask Him for help.'],
+    verses: [],
+  },
+  {
+    key: '3',
+    title: 'Go to church',
+    summary: 'Find a church that loves Jesus and teaches the Bible, and make friends who love Him too.',
+    points: ['We follow Jesus better together than alone.'],
+    verses: [],
+  },
 ]

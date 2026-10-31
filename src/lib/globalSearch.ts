@@ -12,7 +12,7 @@ import { PERIODS } from '../categories/church-history/data'
 import { CALENDAR } from '../categories/church-calendar/data'
 import { QUESTIONS } from '../categories/apologetics/data'
 import { CATECHISM } from '../categories/apologetics/catechism'
-import { POINTS as GOSPEL_POINTS, ROMANS_ROAD, RESPOND, ONE_SENTENCE } from '../categories/gospel/data'
+import { POINTS as GOSPEL_POINTS, ROMANS_ROAD, RESPOND, ONE_SENTENCE, ENCOURAGE } from '../categories/gospel/data'
 
 export interface SearchResult {
   section: string
@@ -96,6 +96,10 @@ const INDEX: SearchResult[] = [
     section: 'The Gospel Message', label: 'Sharing the gospel with a child', sub: 'Children’s version',
     to: '/gospel', hay: lc('child children kids child-friendly gospel salvation simple'),
   },
+  ...ENCOURAGE.map((p) => ({
+    section: 'The Gospel Message', label: p.title, sub: 'Encouragement',
+    to: '/gospel', hay: lc('encouragement next steps new christian grow', p.title, p.summary, p.points.join(' '), p.verses.join(' '), 'read bible daily church pray'),
+  })),
 ]
 
 /** Section display order for grouping results. */
