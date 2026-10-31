@@ -111,17 +111,6 @@ export const CATEGORIES: Category[] = [
     element: <ChurchCalendarView />,
   },
   {
-    id: 'gospel',
-    group: 'Faith & Belief',
-    path: '/gospel',
-    title: 'The Gospel Message',
-    icon: '✝️',
-    blurb: 'An easy-to-remember guide for sharing the good news of Jesus, with the verses behind each point.',
-    accent: '#C0433D',
-    tagline: 'Sharing the Good News',
-    element: <GospelView />,
-  },
-  {
     id: 'religions',
     group: 'Faith & Belief',
     path: '/religions',
@@ -164,6 +153,17 @@ export const CATEGORIES: Category[] = [
     accent: '#6E8B3D',
     tagline: 'Key terms',
     element: <GlossaryView />,
+  },
+  {
+    id: 'gospel',
+    group: 'Reference',
+    path: '/gospel',
+    title: 'Sharing the Good News',
+    icon: '✝️',
+    blurb: 'An easy-to-remember guide for sharing the good news of Jesus, with the verses behind each point.',
+    accent: '#C0433D',
+    tagline: 'The Gospel Message',
+    element: <GospelView />,
   },
 ]
 

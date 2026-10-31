@@ -77,27 +77,27 @@ const INDEX: SearchResult[] = [
     to: '/apologetics?tab=catechism', hay: lc(c.question, c.answer, c.ref, 'catechism'),
   })),
   ...GOSPEL_POINTS.map((p) => ({
-    section: 'The Gospel Message', label: p.title, sub: p.key,
+    section: 'Sharing the Good News', label: p.title, sub: p.key,
     to: '/gospel', hay: lc(p.key, p.title, p.summary, p.points.join(' '), p.verses.join(' '), 'gospel salvation'),
   })),
   {
-    section: 'The Gospel Message', label: 'The gospel in one sentence', sub: 'Quick recall',
+    section: 'Sharing the Good News', label: 'The gospel in one sentence', sub: 'Quick recall',
     to: '/gospel', hay: lc(ONE_SENTENCE, 'gospel salvation summary'),
   },
   {
-    section: 'The Gospel Message', label: 'The Romans Road', sub: 'Quick tool',
+    section: 'Sharing the Good News', label: 'The Romans Road', sub: 'Quick tool',
     to: '/gospel', hay: lc('romans road', ROMANS_ROAD.map((s) => s.ref + ' ' + s.note).join(' ')),
   },
   {
-    section: 'The Gospel Message', label: 'How to respond — A · B · C', sub: 'Repent & believe',
+    section: 'Sharing the Good News', label: 'How to respond — A · B · C', sub: 'Repent & believe',
     to: '/gospel', hay: lc('respond repent believe confess abc salvation prayer', RESPOND.map((s) => s.title + ' ' + s.detail).join(' ')),
   },
   {
-    section: 'The Gospel Message', label: 'Sharing the gospel with a child', sub: 'Children’s version',
+    section: 'Sharing the Good News', label: 'Sharing the gospel with a child', sub: 'Children’s version',
     to: '/gospel', hay: lc('child children kids child-friendly gospel salvation simple'),
   },
   ...ENCOURAGE.map((p) => ({
-    section: 'The Gospel Message', label: p.title, sub: 'Encouragement',
+    section: 'Sharing the Good News', label: p.title, sub: 'Encouragement',
     to: '/gospel', hay: lc('encouragement next steps new christian grow', p.title, p.summary, p.points.join(' '), p.verses.join(' '), 'read bible daily church pray'),
   })),
 ]
@@ -105,7 +105,7 @@ const INDEX: SearchResult[] = [
 /** Section display order for grouping results. */
 export const SECTION_ORDER = [
   'Book by Book', 'Bible Characters', 'Bible Stories', 'Timeline', 'Church History',
-  'Church Calendar', 'The Gospel Message', 'Religions', 'Denominations', 'Apologetics', 'Glossary',
+  'Church Calendar', 'Religions', 'Denominations', 'Apologetics', 'Sharing the Good News', 'Glossary',
 ]
 
 /** Search the index. Pass `sections` to restrict to those section names;
